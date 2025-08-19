@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Us - Empowering the Nation</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fdf6e3;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 22px;
+        }
+        header {
+            background: linear-gradient(90deg, #3b7d3b, #2b5e2b);
+            color: white;
+            padding: 30px 0 20px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,192L48,208C96,224,192,256,288,245.3C384,235,480,181,576,160C672,139,768,149,864,165.3C960,181,1056,203,1152,213.3C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
+            z-index: 1;
+        }
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 12px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.19);
+        }
+        header p {
+            font-size: 1.35rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.92;
+        }
+        .main-content {
+            padding: 48px 0;
+        }
+        .about-section {
+            background: white;
+            border-radius: 14px;
+            padding: 36px 30px 24px 30px;
+            box-shadow: 0 8px 28px rgba(0,0,0,0.07);
+            margin-bottom: 40px;
+        }
+        .about-section h2 {
+            color: #3b7d3b;
+            font-size: 2.2rem;
+            margin-bottom: 18px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .about-section h2::after {
+            content: "";
+            display: block;
+            margin: 10px auto 0 auto;
+            width: 64px;
+            height: 4px;
+            background: #ff9800;
+            border-radius: 2px;
+        }
+        .about-section p {
+            font-size: 1.18rem;
+            color: #444;
+            margin-bottom: 22px;
+            max-width: 820px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        .about-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 36px;
+            margin-top: 25px;
+            justify-content: center;
+        }
+        .about-card {
+            flex: 1 1 260px;
+            min-width: 260px;
+            background: #fdf6e3;
+            border: 2px solid #ff9800;
+            border-radius: 12px;
+            padding: 30px 22px;
+            box-shadow: 0 2px 10px rgba(255,152,0,0.06);
+            max-width: 370px;
+            text-align: center;
+            transition: transform 0.18s;
+        }
+        .about-card:hover {
+            transform: translateY(-8px) scale(1.03);
+        }
+        .about-card i {
+            font-size: 2.5rem;
+            color: #ff9800;
+            margin-bottom: 16px;
+        }
+        .about-card h3 {
+            color: #2b5e2b;
+            font-size: 1.28rem;
+            margin-bottom: 10px;
+        }
+        .about-card p {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 0;
+        }
+        @media (max-width: 900px) {
+            .about-grid {
+                flex-direction: column;
+                gap: 24px;
+            }
+            .about-card {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>About Empowering the Nation</h1>
+            <p>Building a stronger future through education, skills, and community.</p>
+        </div>
+    </header>
+    <div class="main-content">
+        <div class="container">
+            <section class="about-section">
+                <h2>Welcome to Empowering the Nation</h2>
+                <p>
+                    Founded in 2022 by Precious Radebe, Empowering the Nation is a proudly South African initiative dedicated to uplifting domestic workers and gardeners through practical, culturally relevant training.<br /><br />
+                    Our programmes blend traditional wisdom with modern skills, creating opportunities for sustainable employment and personal growth. Whether you're looking for a six-month Learnership or a Short Skills Training Programme, we are here to guide you every step of the way.<br /><br />
+                    We believe in the power of community and the dignity of work. By equipping individuals with valuable life and work skills, we help unlock doors to brighter futures for families and communities.<br /><br />
+                    Together with our partners and supporters, we strive to foster resilience, confidence, and lasting change in the lives of those we serve. Our vision is a nation where every worker is empowered, respected, and given opportunities to thrive.
+                </p>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <i class="fa-solid fa-people-roof"></i>
+                        <h3>Our Mission</h3>
+                        <p>
+                            To equip domestic workers and gardeners with practical skills, confidence, and knowledge, enabling them to achieve personal growth and meaningful employment.
+                        </p>
+                    </div>
+                    <div class="about-card">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <h3>Our Values</h3>
+                        <p>
+                            Dignity, inclusivity, and respect are at the heart of everything we do. We celebrate cultural heritage while promoting innovation and lifelong learning.
+                        </p>
+                    </div>
+                    <div class="about-card">
+                        <i class="fa-solid fa-seedling"></i>
+                        <h3>Our Impact</h3>
+                        <p>
+                            From job placements to community upliftment, our programs help create sustainable change for workers, their families, and future generations.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
