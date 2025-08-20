@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Six Month Courses</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f9f9f9;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .course {
+      background: #fff;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+
+    .course h2 {
+      margin: 0;
+      font-size: 1.2em;
+      color: #333;
+    }
+
+    .course div {
+      display: none;
+      margin-top: 8px;
+      color: #555;
+    }
+
+    ul {
+      margin-top: 5px;
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Six-Month Courses</h1>
+
+  <div class="course">
+    <h2>First Aid</h2>
+    <div>
+      <p>R1500:To provide first aid awareness and basic life support.</p>
+      <ul>
+        <li>Wounds and bleeding</li>
+        <li>Handling fractures and burns</li>
+        <li>Emergency scene Management</li>
+        <li>Cardio Pulmonary Resuscitation(CPR)</li>
+        <li>Respiratory distress e.g. Choking, blocked airway.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="course">
+    <h2>Sewing</h2>
+    <div>
+      <p>R1500: To provide alterations and new garment tailoring services.</p>
+      <ul>
+        <li>Typpes of stitching</li>
+        <li>Threading a sewing machine</li>
+        <li>Sewing buttons, hems,zips, and seems </li>
+        <li>Alterations</li>
+         <li>Designing and sewing new garments</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="course">
+    <h2>Landscaping</h2>
+    <div>
+      <p>R1500: To provide landscaping services for new and established gardens.</p>
+      <ul>
+        <li>Indeginous and exotic plants and trees</li>
+        <li>Fixed structures(fountains,statues,benches,tables)</li>
+        <li>Balancing of plants and trees in a garden</li>
+        <li>Aesthetics of plant shapes and colours</li>
+        <li>Garden layout</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="course">
+    <h2>Life Skills</h2>
+    <div>
+      <p>To provide skills to navigate basic life necessities.</p>
+      <ul>
+        <li>Opening a bank account</li>
+        <li>Basic labour law(know your rights)</li>
+        <li>Basic reading and writing literacy</li>
+        <li>Basic numeric literacy</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Toggle course details on click
+    document.querySelectorAll('.course').forEach(course => {
+      course.addEventListener('click', () => {
+        const details = course.querySelector('div');
+        const isVisible = details.style.display === 'block';
+        details.style.display = isVisible ? 'none' : 'block';
+      });
+    });
+  </script>
+</body>
+</html>
