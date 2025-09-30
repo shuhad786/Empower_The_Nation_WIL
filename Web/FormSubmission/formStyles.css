@@ -103,10 +103,47 @@ textarea {
     grid-template-columns: 1fr;
     gap: 20px;
   }
+  .input-wrapper {
+    padding-left: 0;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    font-size: 1rem;
+    padding: 12px 10px 12px 40px;
+  }
+  label {
+    font-size: 1rem;
+  }
+  .section {
+    margin-bottom: 28px;
+  }
+  .container {
+    padding: 0 5px;
+  }
 }
 
 @media (max-width: 480px) {
   .section-title {
     font-size: 1.2rem;
+  }
+  .input-icon {
+    width: 16px;
+    height: 16px;
+    left: 8px;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    font-size: 0.95rem;
+    padding: 10px 8px 10px 32px;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  .section {
+    margin-bottom: 18px;
   }
 }
