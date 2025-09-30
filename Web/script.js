@@ -1,14 +1,26 @@
 function loadContent(page) {
-  let content = '';
-  if (page === 'Home') {
-    content = '<h1>Welcome Home!</h1><p>This is the home page.</p>'; // remove add the home page content here
-  } else if (page === 'About') {
-    content = '<h1>About Us</h1><p>Learn more about us here.</p>'; // remove add the about page content here
-  } else if (page === 'Courses') {
-    content = '<h1>Courses</h1><p>Learn more about us here.</p>'; // remove add the courses for both 6 weeks and 12 weeks page content here
-  } else if (page === 'Contact') {
-    content = '<h1>Contact</h1><p>Contact us at info@example.com.</p>'; // remove add the contact page content here
+  let file = '';
+  if (page.toLowerCase() === 'home') {
+    document.getElementById('content').innerHTML = '<h1>Welcome Home!</h1><p>This is the home page.</p>';
+    return;
+  } else if (page.toLowerCase() === 'about') {
+    file = 'AboutPage.html';
+  } else if (page.toLowerCase() === 'courses') {
+    file = 'SixMonths.html'; // or another file for courses
+  } else if (page.toLowerCase() === 'contact') {
+    file = 'ContactPage.html';
+  } else if (page.toLowerCase() === 'form') {
+    file = 'FormSubmission/FormSubmission.html';
   }
-  document.getElementById('content').innerHTML = content;
-}
 
+  if (file) {
+    fetch(file)
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('content').innerHTML = html;
+      })
+      .catch(error => {
+        document.getElementById('content').innerHTML = '<p>Error loading page.</p>';
+      });
+  }
+}
