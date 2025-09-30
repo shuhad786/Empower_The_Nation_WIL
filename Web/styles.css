@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@700&family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@700;800&family=Roboto:wght@400;500;700&display=swap');
 
 * {
   margin: 0;
@@ -8,7 +8,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background: linear-gradient(to bottom, #f5f0e8 0%, #e8dcc8 100%);
+  background: #F8F0E0;
   min-height: 100vh;
   padding: 40px 20px;
   position: relative;
@@ -47,12 +47,13 @@ body::before {
 }
 
 h1 {
-  font-family: 'Passion One', sans-serif;
+  font-family: 'Barlow', sans-serif;
   font-size: 4rem;
-  color: #c27d28;
+  color: #CB7318;
   text-align: center;
   margin-bottom: 40px;
   letter-spacing: 2px;
+  font-weight: 800;
 }
 
 @media (max-width: 768px) {

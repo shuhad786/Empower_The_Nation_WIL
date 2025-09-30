@@ -19,16 +19,16 @@
   content: '';
   flex: 1;
   height: 2px;
-  background: linear-gradient(to right, transparent, #c27d28, transparent);
+  background: linear-gradient(to right, transparent, #CB7318, transparent);
   margin: 0 20px;
 }
 
 .section-title::before {
-  background: linear-gradient(to right, transparent, #c27d28);
+  background: linear-gradient(to right, transparent, #CB7318);
 }
 
 .section-title::after {
-  background: linear-gradient(to left, transparent, #c27d28);
+  background: linear-gradient(to left, transparent, #CB7318);
 }
 
 .form-row {
@@ -49,7 +49,7 @@
 
 label {
   font-size: 0.9rem;
-  color: #c27d28;
+  color: #CB7318;
   font-weight: 500;
   margin-bottom: 8px;
 }
@@ -65,7 +65,6 @@ label {
   left: 15px;
   width: 20px;
   height: 20px;
-  color: #c27d28;
 }
 
 input[type="text"],
@@ -76,11 +75,10 @@ textarea {
   padding: 12px 15px 12px 45px;
   border: none;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(0, 0, 0, 0.06);
   font-size: 0.95rem;
   font-family: 'Roboto', sans-serif;
   color: #333;
-  transition: background 0.3s;
 }
 
 input::placeholder,
@@ -91,7 +89,7 @@ textarea::placeholder {
 input:focus,
 textarea:focus {
   outline: none;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.06);
 }
 
 textarea {
