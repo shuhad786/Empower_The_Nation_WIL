@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -6,17 +7,79 @@
   <link rel="stylesheet" href="FormSubmission/formStyles.css">
   <title>Empower The Nation</title>
 </head>
-  <body>
-    <nav id="navbar">
-      <a href="#" onclick="loadContent('Home')">Home</a>
-      <a href="#" onclick="loadContent('About')">About</a>
-      <a href="#" onclick="loadContent('Contact')">Contact</a>
-      <a href="#" onclick="loadContent('Form')">Form</a>
-    </nav>
-
-    <div id="content">
-      <!-- Dynamic content will appear here -->
+<body>
+  <nav id="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <img src="assets/images/Logo-circle.png" alt="Empowering the Nation Logo">
+      </div>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#" onclick="loadContent('Home')" class="nav-link">Home</a></li>
+        <li><a href="#" onclick="loadContent('Courses')" class="nav-link">Courses</a></li>
+        <li><a href="#" onclick="loadContent('About')" class="nav-link">About</a></li>
+        <li><a href="#" onclick="loadContent('Contact')" class="nav-link">Contact Us</a></li>
+        <li><a href="#" onclick="loadContent('Form')" class="nav-link">Form</a></li>
+      </ul>
     </div>
-    <script src="script.js"></script>
-  </body>
+  </nav>
+  <div id="content">
+    <!-- Dynamic content will appear here -->
+  </div>
+
+  <footer id="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>FAQS</h3>
+        <ul>
+          <li><a href="#">Payments</a></li>
+          <li><a href="#">Registration</a></li>
+          <li><a href="#">Employment</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>SPONSORS</h3>
+        <ul>
+          <li><a href="#">Elevate Workforce Foundation</a></li>
+          <li><a href="#">Fairway Advancement Initiative</a></li>
+          <li><a href="#">Millennium Trust</a></li>
+          <li><a href="#">Empowerment Futures Trust</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section newsletter">
+        <button class="enquire-btn">Enquire</button>
+        <p class="newsletter-text">Subscribe to our news letter for more information on availability for 2025 Courses.</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Empowering the Nation. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navLinks = document.getElementById('navLinks');
+    //open
+    mobileMenuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      mobileMenuToggle.classList.toggle('active');
+    });
+
+    //close
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        mobileMenuToggle.classList.remove('active');
+      });
+    });
+  </script>
+</body>
 </html>
