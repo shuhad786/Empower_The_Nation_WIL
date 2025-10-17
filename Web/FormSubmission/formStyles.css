@@ -1,0 +1,149 @@
+.section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+  margin-bottom: 25px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-title::before,
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #CB7318, transparent);
+  margin: 0 20px;
+}
+
+.section-title::before {
+  background: linear-gradient(to right, transparent, #CB7318);
+}
+
+.section-title::after {
+  background: linear-gradient(to left, transparent, #CB7318);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+label {
+  font-size: 0.9rem;
+  color: #CB7318;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 15px;
+  width: 20px;
+  height: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  padding: 12px 15px 12px 45px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.06);
+  font-size: 0.95rem;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #999;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+  padding-top: 15px;
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .input-wrapper {
+    padding-left: 0;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    font-size: 1rem;
+    padding: 12px 10px 12px 40px;
+  }
+  label {
+    font-size: 1rem;
+  }
+  .section {
+    margin-bottom: 28px;
+  }
+  .container {
+    padding: 0 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.2rem;
+  }
+  .input-icon {
+    width: 16px;
+    height: 16px;
+    left: 8px;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    font-size: 0.95rem;
+    padding: 10px 8px 10px 32px;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  .section {
+    margin-bottom: 18px;
+  }
+}
