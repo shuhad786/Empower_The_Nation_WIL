@@ -3,112 +3,140 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Six Month Courses</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      background: #f9f9f9;
-    }
-
-    h1 {
-      text-align: center;
-    }
-
-    .course {
-      background: #fff;
-      padding: 15px;
-      margin: 10px 0;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      cursor: pointer;
-    }
-
-    .course h2 {
-      margin: 0;
-      font-size: 1.2em;
-      color: #333;
-    }
-
-    .course div {
-      display: none;
-      margin-top: 8px;
-      color: #555;
-    }
-
-    ul {
-      margin-top: 5px;
-      padding-left: 20px;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
+  <title>Empower The Nation | Six-Month Courses</title>
 </head>
 <body>
-  <h1>Six-Month Courses</h1>
+  <!-- Navigation copied from index, my pages have been added-->
+  <nav class="flex justify-between align-center background-accent-1 padding-x height-navbar">
+    <img class="logo" src="assests/logo.png" alt="Empower The Nation Logo">
+    <div class="flex justify-evenly align-self-end width-nav-items">
+      <a class="text-decoration-none font-segoe-ui text-orange text-s nav-item-hover" href="#" onclick="loadContent('Home')">Home</a>
+      <a class="text-decoration-none font-segoe-ui text-orange text-s nav-item-hover" href="#" onclick="loadContent('About')">About</a>
+      <a class="text-decoration-none font-segoe-ui text-orange text-s nav-item-hover" href="#" onclick="loadContent('Contact')">Contact</a>
+      <a class="text-decoration-none font-segoe-ui text-orange text-s nav-item-hover" href="#" onclick="loadContent('Forms')">Forms</a>
+      <a class="text-decoration-none font-segoe-ui text-orange text-s nav-item-hover" href="#" onclick="loadContent('six_weeks')">Six Week Courses</a>
+      <a class="text-decoration-none font-segoe-ui text-orange text-s nav-item-hover" href="#" onclick="loadContent('six_months')">Six Month Courses</a>
+    </div>
+  </nav>
 
-  <div class="course">
-    <h2>First Aid</h2>
-    <div>
-      <p>R1500:To provide first aid awareness and basic life support.</p>
-      <ul>
+  <!-- Main Content For Course Page -->
+  <main id="content" class="height background-transparent padding-m">
+    <section id="course-list" class="text-center margin-y">
+      <h2 class="font-segoe-ui text-orange">Six-Month Courses</h2>
+      <p class="font-segoe-ui text-s">Select a course below to view its details:</p>
+      <ul class="course-list list-style-none padding-left-0">
+        <li class="margin-y">
+          <a class="text-decoration-none text-accent-2 font-segoe-ui-bold text-m hover-underline" onclick="showCourse('first-aid')">Child Minding</a>
+        </li>
+        <li class="margin-y">
+          <a class="text-decoration-none text-accent-2 font-segoe-ui-bold text-m hover-underline" onclick="showCourse('sewing')">Cooking</a>
+        </li>
+        <li class="margin-y">
+          <a class="text-decoration-none text-accent-2 font-segoe-ui-bold text-m hover-underline" onclick="showCourse('landscaping')">Garden Maintenance</a>
+        </li>
+        <li class="margin-y">
+          <a class="text-decoration-none text-accent-2 font-segoe-ui-bold text-m hover-underline" onclick="showCourse('lifeskills')">Garden Maintenance</a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- First Aid -->
+    <section id="first-aid" class="course-details background-accent-2 round padding-m shadow-card">
+      <h3 class="font-segoe-ui text-orange">First Aid</h3>
+      <p class="font-segoe-ui text-s">Learn essential first aid awareness and basic life support.</p>
+      <ul class="font-segoe-ui text-xs">
         <li>Wounds and bleeding</li>
-        <li>Handling fractures and burns</li>
-        <li>Emergency scene Management</li>
-        <li>Cardio Pulmonary Resuscitation(CPR)</li>
-        <li>Respiratory distress e.g. Choking, blocked airway.</li>
+        <li>Burns and fractures</li>
+        <li>Emergency scene management</li>
+        <li>Cardio - Pulmonary Resuscitation (CPR)</li>
+         <li>Respiratory distress e.g. choking or blocked airway</li>
       </ul>
-    </div>
-  </div>
+      <p class="font-segoe-ui text-s"><strong>Course Fee:</strong> R1500</p>
+      <a class="back-link text-accent-2 font-segoe-ui-bold text-s hover-underline" onclick="showList()">⬅ Back to Course List</a>
+    </section>
 
-  <div class="course">
-    <h2>Sewing</h2>
-    <div>
-      <p>R1500: To provide alterations and new garment tailoring services.</p>
-      <ul>
-        <li>Typpes of stitching</li>
+    <!-- Sewing -->
+    <section id="sewing" class="course-details background-accent-2 round padding-m shadow-card">
+      <h3 class="font-segoe-ui text-orange">Sewing</h3>
+      <p class="font-segoe-ui text-s"> Learn to provide garments and new garment tailoring services.</p>
+      <ul class="font-segoe-ui text-xs">
+        <li>Types of stitches</li>
         <li>Threading a sewing machine</li>
-        <li>Sewing buttons, hems,zips, and seems </li>
+        <li>Sewing buttons, hems, zips, and seams</li>
         <li>Alterations</li>
-         <li>Designing and sewing new garments</li>
+        <li>Designing and sewing new garments</li>
       </ul>
-    </div>
-  </div>
+      <p class="font-segoe-ui text-s"><strong>Course Fee:</strong> R1500</p>
+      <a class="back-link text-accent-2 font-segoe-ui-bold text-s hover-underline" onclick="showList()">⬅ Back to Course List</a>
+    </section>
 
-  <div class="course">
-    <h2>Landscaping</h2>
-    <div>
-      <p>R1500: To provide landscaping services for new and established gardens.</p>
-      <ul>
-        <li>Indeginous and exotic plants and trees</li>
-        <li>Fixed structures(fountains,statues,benches,tables)</li>
+    <!-- Landscaping -->
+    <section id="landscaping" class="course-details background-accent-2 round padding-m shadow-card">
+      <h3 class="font-segoe-ui text-orange">Landscaping</h3>
+      <p class="font-segoe-ui text-s">Learn landscaping servicing for new and established garden.</p>
+      <ul class="font-segoe-ui text-xs">
+        <li>Indigenous and exotic plants and trees</li>
+        <li>Fixed Structures(fountains,statues,benches,tables,built in braai's)</li>
         <li>Balancing of plants and trees in a garden</li>
         <li>Aesthetics of plant shapes and colours</li>
         <li>Garden layout</li>
       </ul>
-    </div>
-  </div>
+      <p class="font-segoe-ui text-s"><strong>Course Fee:</strong> R1500</p>
+      <a class="back-link text-accent-2 font-segoe-ui-bold text-s hover-underline" onclick="showList()">⬅ Back to Course List</a>
+    </section>
 
-  <div class="course">
-    <h2>Life Skills</h2>
-    <div>
-      <p>To provide skills to navigate basic life necessities.</p>
-      <ul>
+    <!-- Life Skills -->
+    <section id="lifeskills" class="course-details background-accent-2 round padding-m shadow-card">
+      <h3 class="font-segoe-ui text-orange">Life Skills</h3>
+      <p class="font-segoe-ui text-s"> Learn essential life skills to navigate basic life necessities.</p>
+      <ul class="font-segoe-ui text-xs">
         <li>Opening a bank account</li>
         <li>Basic labour law(know your rights)</li>
         <li>Basic reading and writing literacy</li>
         <li>Basic numeric literacy</li>
       </ul>
-    </div>
-  </div>
+      <p class="font-segoe-ui text-s"><strong>Course Fee:</strong> R1500</p>
+      <a class="back-link text-accent-2 font-segoe-ui-bold text-s hover-underline" onclick="showList()">⬅ Back to Course List</a>
+    </section>
 
-  <script>
-    // Toggle course details on click
-    document.querySelectorAll('.course').forEach(course => {
-      course.addEventListener('click', () => {
-        const details = course.querySelector('div');
-        const isVisible = details.style.display === 'block';
-        details.style.display = isVisible ? 'none' : 'block';
-      });
-    });
-  </script>
+  </main>
+
+  <!-- Footer Section-->
+  <footer class="flex justify-between align-center background-accent-1 padding-s height-footer-1">
+    <div class="flex align-self-start">
+      <ul class="text-orange font-segoe-ui padding-left-0 text-left margin-left-0 list-position">
+        <p class="text-m">FAQS</p>
+        <li class="text-xs margin-bottom">Payments</li>
+        <li class="text-xs margin-y">Registration</li>
+        <li class="text-xs margin-y">Employment</li>
+      </ul>
+    </div>
+
+    <div class="flex align-self-start">
+      <ul class="text-orange font-segoe-ui padding-left-0 text-left margin-left-0 list-position">
+        <p class="text-m">SPONSORS</p>
+        <li class="text-xs margin-bottom">Elevate Workforce Foundation</li>
+        <li class="text-xs margin-y">Pathway Advancement Initiative</li>
+        <li class="text-xs margin-y">NextGen Skills Alliance</li>
+        <li class="text-xs">Empowerment Futures Trust</li>
+      </ul>
+    </div>
+
+    <div class="flex align-center justify-between background-accent-2 padding-s width-footer-2 height-footer-2 round">
+      <button class="text-orange font-segoe-ui-italic background-accent-button round border-none padding-s width-button-1 text-m shadow-button">Enquire</button>
+      <p class="text-orange font-segoe-ui-italic text-s">
+        Subscribe to our newsletter for more information on<br>availability for 2025 Courses.
+      </p>
+    </div>
+
+    <p class="text-orange font-segoe-ui align-self-end">
+      2025 Empowering the Nation.<br>All rights reserved.
+    </p>
+  </footer>
+
+  <!-- External Script -->
+  <script src="script.js"></script>
 </body>
 </html>
+
