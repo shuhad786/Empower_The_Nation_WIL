@@ -1,4 +1,4 @@
-package com.example.empowerthenationmobile.ui.sixWeeks.course1
+package com.example.empowerthenationmobile.ui.sixWeeks.course2
 
 import androidx.compose.runtime.Composable
 import androidx.compose.material3.Text

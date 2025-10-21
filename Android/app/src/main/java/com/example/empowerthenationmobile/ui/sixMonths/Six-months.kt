@@ -1,4 +1,9 @@
+package com.example.empowerthenationmobile.ui.sixMonths
+
+import androidx.compose.runtime.Composable
+import androidx.compose.material3.Text
+
 @Composable
 fun SixMonthScreen() {
-  // Your UI code here
+  Text("Six months Screen")
 }
