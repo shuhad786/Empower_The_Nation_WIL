@@ -7,6 +7,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -40,13 +41,12 @@ import androidx.compose.ui.graphics.Paint
 import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.graphics.toArgb
-import androidx.compose.ui.platform.LocalConfiguration
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalWindowInfo
-import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.DpOffset
+import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -86,12 +86,16 @@ fun EmpowerTheNationApp() {
   val shadowOffsetX = 4.dp
   val shadowOffsetY = 4.dp
 
+  // adjust height of the drop down menu
+  val heightDensity = LocalDensity.current
+  val yOffsetPx = with(heightDensity) { 10.dp.roundToPx() }  // adjust 10.dp to how far down you want
+
   // menu height and width between top bar and footer
   val windowInfo = LocalWindowInfo.current
   val density = LocalDensity.current
   val containerHeightDp = with(density) { windowInfo.containerSize.height.toDp() }
   val topBarHeight = 110.dp
-  val bottomBarHeight = 200.dp  // adjust if your BottomAppBar height differs
+  val bottomBarHeight = 210.dp  // adjust if your BottomAppBar height differs
   val dropdownHeight = containerHeightDp - topBarHeight - bottomBarHeight
 
   Scaffold(
@@ -157,68 +161,100 @@ fun EmpowerTheNationApp() {
               modifier = Modifier
                 .fillMaxWidth()
                 .height(dropdownHeight)
-                .background(BrownAccent.copy(alpha = 0.9f))
+                .background(BrownAccent.copy(alpha = 0.9f)),
+
+              offset = DpOffset(x = 0.dp, y = 20.dp)  // moves dropdown
             ) {
-              DropdownMenuItem(
-                text = { Text("Home", color = OrangeText) },
-                onClick = {
-                  expanded = false
-                  navController.navigate("home") {
-                    launchSingleTop = true
-                    restoreState = true
+              Column(
+                modifier = Modifier.fillMaxWidth(),
+                verticalArrangement = Arrangement.spacedBy(40.dp),  // even vertical spacing
+                horizontalAlignment = Alignment.CenterHorizontally  // center items horizontally
+              ) {
+                DropdownMenuItem(
+                  text = {
+                    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+                      Text("Home", color = OrangeText)
+                    }
+                  },
+                  onClick = {
+                    expanded = false
+                    navController.navigate("home") {
+                      launchSingleTop = true
+                      restoreState = true
+                    }
                   }
-                }
-              )
-              DropdownMenuItem(
-                text = { Text("About", color = OrangeText) },
-                onClick = {
-                  expanded = false
-                  navController.navigate("about") {
-                    launchSingleTop = true
-                    restoreState = true
+                )
+                DropdownMenuItem(
+                  text = {
+                    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+                      Text("About", color = OrangeText)
+                    }
+                  },
+                  onClick = {
+                    expanded = false
+                    navController.navigate("about") {
+                      launchSingleTop = true
+                      restoreState = true
+                    }
                   }
-                }
-              )
-              DropdownMenuItem(
-                text = { Text("Six Month Course", color = OrangeText) },
-                onClick = {
-                  expanded = false
-                  navController.navigate("sixMonths") {
-                    launchSingleTop = true
-                    restoreState = true
+                )
+                DropdownMenuItem(
+                  text = {
+                    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+                    Text("Six Month Course", color = OrangeText)
+                    }
+                  },
+                  onClick = {
+                    expanded = false
+                    navController.navigate("sixMonths") {
+                      launchSingleTop = true
+                      restoreState = true
+                    }
                   }
-                }
-              )
-              DropdownMenuItem(
-                text = { Text("Six Week Course", color = OrangeText) },
-                onClick = {
-                  expanded = false
-                  navController.navigate("sixWeeks") {
-                    launchSingleTop = true
-                    restoreState = true
+                )
+                DropdownMenuItem(
+                  text = {
+                    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+                    Text("Six Week Course", color = OrangeText)
+                    }
+                  },
+                  onClick = {
+                    expanded = false
+                    navController.navigate("sixWeeks") {
+                      launchSingleTop = true
+                      restoreState = true
+                    }
                   }
-                }
-              )
-              DropdownMenuItem(
-                text = { Text("Contact", color = OrangeText) },
-                onClick = {
-                  expanded = false
-                  navController.navigate("contact") {
-                    launchSingleTop = true
-                    restoreState = true
+                )
+                DropdownMenuItem(
+                  text = {
+                    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+                    Text("Contact", color = OrangeText)
+                    }
+                  },
+                  onClick = {
+                    expanded = false
+                    navController.navigate("contact") {
+                      launchSingleTop = true
+                      restoreState = true
+                    }
                   }
-                }
-              )
-              DropdownMenuItem(
-                text = { Text("Forms", color = OrangeText) },
-                onClick = {
-                  expanded = false
-                  navController.navigate("forms") {
-                    launchSingleTop = true
-                    restoreState = true
+                )
+                DropdownMenuItem(
+                  text = {
+                    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+                    Text("Forms", color = OrangeText)
+                    }
+                  },
+                  onClick = {
+                    expanded = false
+                    navController.navigate("forms") {
+                      launchSingleTop = true
+                      restoreState = true
+                    }
                   }
-                }
-              )
+                )
+              }
             }
           }
         }
@@ -227,7 +263,7 @@ fun EmpowerTheNationApp() {
     bottomBar = {
       BottomAppBar(
         containerColor = MaterialTheme.colorScheme.primary, // GreenAccent background
-        modifier = Modifier.height(bottomBarHeight)
+        modifier = Modifier.height(200.dp)
       ) {
         Text(
           modifier = Modifier.padding(16.dp),

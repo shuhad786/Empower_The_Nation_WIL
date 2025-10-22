@@ -9,6 +9,15 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontStyle
+import com.example.empowerthenationmobile.R
+import androidx.compose.material3.Typography
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.sp
+
 
 private val DarkColorScheme = darkColorScheme(
   primary = GreenAccent,
@@ -20,6 +29,31 @@ private val LightColorScheme = lightColorScheme(
   primary = GreenAccent,
   secondary = BackgroundColor,
   tertiary = BrownAccent,
+)
+
+val SegoeUIFontFamily = FontFamily(
+  Font(R.font.segoe_ui_regular, weight = FontWeight.Normal, style = FontStyle.Normal),
+  Font(R.font.segoe_ui_bold, weight = FontWeight.Bold, style = FontStyle.Normal),
+  Font(R.font.segoe_ui_italic, weight = FontWeight.Normal, style = FontStyle.Italic)
+)
+
+val AppFont = Typography(
+  bodyLarge = TextStyle(
+    fontFamily = SegoeUIFontFamily,
+    fontWeight = FontWeight.Normal,
+    fontSize = 18.sp
+  ),
+  bodyMedium = TextStyle(
+    fontFamily = SegoeUIFontFamily,
+    fontWeight = FontWeight.Normal,
+    fontSize = 14.sp
+  ),
+  titleLarge = TextStyle(
+    fontFamily = SegoeUIFontFamily,
+    fontWeight = FontWeight.Bold,
+    fontSize = 22.sp
+  )
+  // Add other text styles as needed
 )
 
 @Composable
@@ -41,7 +75,7 @@ fun EmpowerTheNationMobileTheme(
 
   MaterialTheme(
     colorScheme = colorScheme,
-    typography = Typography,
+    typography = AppFont,
     content = content
   )
 }
