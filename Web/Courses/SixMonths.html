@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Six Month Courses | Empower The Nation</title>
+  <link rel="stylesheet" href="../styles.css">
+
+  <!-- Inline CSS just for six-month course page layout -->
+  <style>
+    /* Grid layout for course cards */
+    .course-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+      padding: 1rem;
+    }
+
+    /* Added spacing to buttons and hover effect */
+    .course-item button {
+      margin-top: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+
+    .course-item button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+
+    /* Center course card text */
+    .course-item {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <main class="padding-l background-accent-1 round shadow-card">
+    <h2 class="font-segoe-ui text-orange text-center">Six Month Courses</h2>
+    <p class="font-segoe-ui text-s text-center">
+      Each course runs for six months and provides comprehensive skills training.
+    </p>
+
+    <div class="course-list">
+      <!-- First Aid -->
+      <section class="course-item background-accent-2 round padding-m shadow-card">
+        <h3 class="font-segoe-ui text-orange">First Aid</h3>
+        <p class="font-segoe-ui text-s">Learn essential first aid awareness and basic life support.</p>
+        <button onclick="loadFirstAid()">
+          <span class="font-segoe-ui-bold text-s text-orange hover-underline">View Details</span>
+        </button>
+      </section>
+
+      <!-- Sewing -->
+      <section class="course-item background-accent-2 round padding-m shadow-card">
+        <h3 class="font-segoe-ui text-orange">Sewing</h3>
+        <p class="font-segoe-ui text-s">Learn to provide garments and new garment tailoring services.</p>
+        <button onclick="loadSewing()">
+          <span class="font-segoe-ui-bold text-s text-orange hover-underline">View Details</span>
+        </button>
+      </section>
+
+      <!-- Landscaping -->
+      <section class="course-item background-accent-2 round padding-m shadow-card">
+        <h3 class="font-segoe-ui text-orange">Landscaping</h3>
+        <p class="font-segoe-ui text-s">Learn landscaping servicing for new and established gardens.</p>
+        <button onclick="loadLandscaping()">
+          <span class="font-segoe-ui-bold text-s text-orange hover-underline">View Details</span>
+        </button>
+      </section>
+
+      <!-- Life Skills -->
+      <section class="course-item background-accent-2 round padding-m shadow-card">
+        <h3 class="font-segoe-ui text-orange">Life Skills</h3>
+        <p class="font-segoe-ui text-s">Learn essential life skills to navigate basic life necessities.</p>
+        <button onclick="loadLifeSkills()">
+          <span class="font-segoe-ui-bold text-s text-orange hover-underline">View Details</span>
+        </button>
+      </section>
+    </div>
+  </main>
+
+   <!-- Calling my own jsfile after the one for main page -->
+  <script src="../script.js"></script>
+  <script src="courses.js"></script>
+</body>
+</html>
+
