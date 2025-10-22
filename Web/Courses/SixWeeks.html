@@ -1,0 +1,80 @@
+ <!-- The ../ means the reference should go up 1 folder level so no need for seperate css file-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Six Week Courses | Empower The Nation</title>
+  <link rel="stylesheet" href="../styles.css">
+
+  <!-- Separate CSS just for course page layout -->
+  <style>
+    /* Grid layout for course cards */
+    .course-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+      padding: 1rem;
+    }
+
+    /* Add spacing to buttons and hover effect */
+    .course-item button {
+      margin-top: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+
+    .course-item button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+
+    /* Center course card text */
+    .course-item {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <main class="padding-l background-accent-1 round shadow-card">
+    <h2 class="font-segoe-ui text-orange text-center">Six Week Courses</h2>
+    <p class="font-segoe-ui text-s text-center">
+      Each course runs for six weeks and offers practical, hands-on skills development.
+    </p>
+
+    <div class="course-list">
+      <!-- Child Minding -->
+      <section class="course-item background-accent-2 round padding-m shadow-card">
+        <h3 class="font-segoe-ui text-orange">Child Minding</h3>
+        <p class="font-segoe-ui text-s">Learn how to provide safe basic child and baby care.</p>
+        <button onclick="loadChildMinding()">
+          <span class="font-segoe-ui-bold text-s text-orange hover-underline">View Details</span>
+        </button>
+      </section>
+
+      <!-- Cooking -->
+      <section class="course-item background-accent-2 round padding-m shadow-card">
+        <h3 class="font-segoe-ui text-orange">Cooking</h3>
+        <p class="font-segoe-ui text-s">Learn to cook and prepare nutritious family meals.</p>
+        <button onclick="loadCooking()">
+          <span class="font-segoe-ui-bold text-s text-orange hover-underline">View Details</span>
+        </button>
+      </section>
+
+      <!-- Garden Maintenance -->
+      <section class="course-item background-accent-2 round padding-m shadow-card">
+        <h3 class="font-segoe-ui text-orange">Garden Maintenance</h3>
+        <p class="font-segoe-ui text-s">Learn the basics of watering, planting, and pruning.</p>
+        <button onclick="loadGardenMaintenance()">
+          <span class="font-segoe-ui-bold text-s text-orange hover-underline">View Details</span>
+        </button>
+      </section>
+    </div>
+  </main>
+
+  <!-- Calling my own jsfile after the one for main page -->
+  <script src="../script.js"></script>
+  <script src="courses.js"></script>
+</body>
+</html>
