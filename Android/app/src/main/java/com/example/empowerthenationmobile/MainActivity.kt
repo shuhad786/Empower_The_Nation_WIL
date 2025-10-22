@@ -3,14 +3,18 @@ package com.example.empowerthenationmobile
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.ui.res.painterResource
-import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -21,15 +25,28 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Paint
+import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
+import androidx.compose.ui.graphics.nativeCanvas
+import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalWindowInfo
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -40,7 +57,9 @@ import com.example.empowerthenationmobile.ui.forms.FormScreen
 import com.example.empowerthenationmobile.ui.home.HomeScreen
 import com.example.empowerthenationmobile.ui.sixMonths.SixMonthScreen
 import com.example.empowerthenationmobile.ui.sixWeeks.SixWeekScreen
+import com.example.empowerthenationmobile.ui.theme.BrownAccent
 import com.example.empowerthenationmobile.ui.theme.EmpowerTheNationMobileTheme
+import com.example.empowerthenationmobile.ui.theme.OrangeText
 
 
 class MainActivity : ComponentActivity() {
@@ -60,35 +79,88 @@ fun EmpowerTheNationApp() {
   val navController = rememberNavController()
   var expanded by remember { mutableStateOf(false) }  // Dropdown menu visibility state
 
+  // shadow values for the Logo
+  val shadowColor = Color(0xFF000000)  // black
+  val shadowAlpha = 1f  // 100% opacity
+  val shadowBlurRadius = 15.dp
+  val shadowOffsetX = 4.dp
+  val shadowOffsetY = 4.dp
+
+  // menu height and width between top bar and footer
+  val windowInfo = LocalWindowInfo.current
+  val density = LocalDensity.current
+  val containerHeightDp = with(density) { windowInfo.containerSize.height.toDp() }
+  val topBarHeight = 110.dp
+  val bottomBarHeight = 200.dp  // adjust if your BottomAppBar height differs
+  val dropdownHeight = containerHeightDp - topBarHeight - bottomBarHeight
+
   Scaffold(
     topBar = {
       TopAppBar(
-        modifier = Modifier.height(120.dp),
+        modifier = Modifier.height(topBarHeight),
         title = {
-          Row(verticalAlignment = Alignment.CenterVertically) {
-            Image(
-              painter = painterResource(id = R.drawable.ic_logo),
-              contentDescription = "App Logo",
+
+          Row (
+            modifier = Modifier.fillMaxHeight(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceAround)
+          {
+            Box(
               modifier = Modifier
-                .size(60.dp)
-                .padding(end = 8.dp)
-            )
+                .size(80.dp)
+                .drawBehind {
+                  drawIntoCanvas { canvas ->
+                    val paint = Paint().asFrameworkPaint().apply {
+                      isAntiAlias = true
+                      color = shadowColor.copy(alpha = shadowAlpha).toArgb()
+                      setShadowLayer(
+                        shadowBlurRadius.toPx(),
+                        shadowOffsetX.toPx(),
+                        shadowOffsetY.toPx(),
+                        color
+                      )
+                    }
+                    canvas.nativeCanvas.drawCircle(
+                      size.width / 2,
+                      size.height / 2,
+                      size.minDimension / 2,
+                      paint
+                    )
+                  }
+                }
+                .clip(CircleShape)
+            ) {
+              Image(
+                painter = painterResource(id = R.drawable.ic_logo),
+                contentDescription = "App Logo",
+                modifier = Modifier.fillMaxSize()
+              )
+            }
           }
         },
         colors = TopAppBarDefaults.topAppBarColors(
-          containerColor = MaterialTheme.colorScheme.primary  // GreenAccent background
+          containerColor = MaterialTheme.colorScheme.primary
         ),
         actions = {
-          Box (contentAlignment = Alignment.Center) {
+          Box  {
             IconButton(onClick = { expanded = true }) {
-              Icon(Menu, contentDescription = "Menu")
+              Icon (
+                Menu,
+                contentDescription = "Menu",
+                tint = OrangeText,
+                modifier = Modifier.size(40.dp)
+                )
             }
             DropdownMenu(
               expanded = expanded,
-              onDismissRequest = { expanded = false }
+              onDismissRequest = { expanded = false },
+              modifier = Modifier
+                .fillMaxWidth()
+                .height(dropdownHeight)
+                .background(BrownAccent.copy(alpha = 0.9f))
             ) {
               DropdownMenuItem(
-                text = { Text("Home") },
+                text = { Text("Home", color = OrangeText) },
                 onClick = {
                   expanded = false
                   navController.navigate("home") {
@@ -98,7 +170,7 @@ fun EmpowerTheNationApp() {
                 }
               )
               DropdownMenuItem(
-                text = { Text("About") },
+                text = { Text("About", color = OrangeText) },
                 onClick = {
                   expanded = false
                   navController.navigate("about") {
@@ -108,7 +180,7 @@ fun EmpowerTheNationApp() {
                 }
               )
               DropdownMenuItem(
-                text = { Text("Six Month Course") },
+                text = { Text("Six Month Course", color = OrangeText) },
                 onClick = {
                   expanded = false
                   navController.navigate("sixMonths") {
@@ -118,7 +190,7 @@ fun EmpowerTheNationApp() {
                 }
               )
               DropdownMenuItem(
-                text = { Text("Six Week Course") },
+                text = { Text("Six Week Course", color = OrangeText) },
                 onClick = {
                   expanded = false
                   navController.navigate("sixWeeks") {
@@ -128,7 +200,7 @@ fun EmpowerTheNationApp() {
                 }
               )
               DropdownMenuItem(
-                text = { Text("Contact") },
+                text = { Text("Contact", color = OrangeText) },
                 onClick = {
                   expanded = false
                   navController.navigate("contact") {
@@ -138,7 +210,7 @@ fun EmpowerTheNationApp() {
                 }
               )
               DropdownMenuItem(
-                text = { Text("Forms") },
+                text = { Text("Forms", color = OrangeText) },
                 onClick = {
                   expanded = false
                   navController.navigate("forms") {
@@ -154,7 +226,8 @@ fun EmpowerTheNationApp() {
     },
     bottomBar = {
       BottomAppBar(
-        containerColor = MaterialTheme.colorScheme.primary  // GreenAccent background
+        containerColor = MaterialTheme.colorScheme.primary, // GreenAccent background
+        modifier = Modifier.height(bottomBarHeight)
       ) {
         Text(
           modifier = Modifier.padding(16.dp),

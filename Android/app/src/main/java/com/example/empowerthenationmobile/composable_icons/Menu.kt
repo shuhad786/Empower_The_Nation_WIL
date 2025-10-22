@@ -5,6 +5,8 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
+import com.example.empowerthenationmobile.ui.theme.OrangeText
+
 
 val Menu: ImageVector
     get() {
@@ -12,13 +14,13 @@ val Menu: ImageVector
 
         _Menu = ImageVector.Builder(
             name = "Menu",
-            defaultWidth = 24.dp,
-            defaultHeight = 24.dp,
-            viewportWidth = 24f,
-            viewportHeight = 24f
+            defaultWidth = 30.dp,
+            defaultHeight = 30.dp,
+            viewportWidth = 30f,
+            viewportHeight = 30f
         ).apply {
             path(
-                fill = SolidColor(Color(0xFF000000))
+                fill = SolidColor(OrangeText)
             ) {
                 // Top bar
                 moveTo(3f, 6f)
