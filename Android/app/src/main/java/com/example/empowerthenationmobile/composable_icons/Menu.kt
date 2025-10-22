@@ -1,6 +1,5 @@
 package com.example.empowerthenationmobile.composable_icons
 
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
@@ -10,9 +9,9 @@ import com.example.empowerthenationmobile.ui.theme.OrangeText
 
 val Menu: ImageVector
     get() {
-        if (_Menu != null) return _Menu!!
+        if (AMenu != null) return AMenu!!
 
-        _Menu = ImageVector.Builder(
+        AMenu = ImageVector.Builder(
             name = "Menu",
             defaultWidth = 30.dp,
             defaultHeight = 30.dp,
@@ -45,8 +44,8 @@ val Menu: ImageVector
             }
         }.build()
 
-        return _Menu!!
+        return AMenu!!
     }
 
-private var _Menu: ImageVector? = null
+private var AMenu: ImageVector? = null
 
