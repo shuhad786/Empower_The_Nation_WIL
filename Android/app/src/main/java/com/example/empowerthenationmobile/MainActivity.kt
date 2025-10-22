@@ -86,10 +86,6 @@ fun EmpowerTheNationApp() {
   val shadowOffsetX = 4.dp
   val shadowOffsetY = 4.dp
 
-  // adjust height of the drop down menu
-  val heightDensity = LocalDensity.current
-  val yOffsetPx = with(heightDensity) { 10.dp.roundToPx() }  // adjust 10.dp to how far down you want
-
   // menu height and width between top bar and footer
   val windowInfo = LocalWindowInfo.current
   val density = LocalDensity.current
