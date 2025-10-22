@@ -116,7 +116,7 @@ function loadContent(page) {
     `
   }
 
-}  
+
 function loadContent(page) {
   document.getElementById('content').innerHTML = content;
 }
