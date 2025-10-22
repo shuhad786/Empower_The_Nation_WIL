@@ -1,0 +1,256 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #F8F0E0;
+  font-weight: normal;
+  height: 100%;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 120; left: 0; right: 0; bottom: 0;
+  background: url('assests/Logo.png') no-repeat center center;
+  background-size: 47%;
+  opacity: 0.07; /* Adjust for watermark effect */
+  z-index: 10; /* Keep it behind all content */
+  pointer-events: none; /* Allow clicks through */
+}
+
+.height { 
+  height: 100%;
+}
+
+.height-navbar {
+  height: 10%;
+}
+
+.height-footer-1 {
+  height: 30%;
+}
+
+.height-footer-2 {
+  height: 11rem;
+}
+
+.width { 
+  width: 100%;
+}
+
+.width-nav-items {
+  width: 33%;
+}
+
+.width-footer-2 {
+  width: 40%;
+}
+
+.width-button-1 {
+  width: 30%;
+}
+
+.flex {
+  display: flex;;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-content-center {
+  align-content: center;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.align-self-start {
+  align-self: flex-start;
+}
+
+.align-self-end {
+  align-self: flex-end;
+}
+
+.font-segoe-ui { 
+	font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  font-weight: normal;
+}
+
+.font-segoe-ui-italic { 
+	font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  font-style: italic;
+  font-weight: lighter; 
+}
+
+.background-accent-1{
+  background-color: #3C4A1E;
+}
+
+.background-accent-2 {
+  background-color: #442F13;
+}
+
+.background-accent-button {
+  background-color: #FFFFFF;
+}
+
+.padding-0 {
+  padding: 0;
+}
+
+.padding-s {
+  padding: 1.5rem;
+}
+
+.padding-m {
+  padding: 2rem;
+}
+
+.padding-left-0 {
+  padding-left: 0;
+}
+
+.padding-x {
+  padding-left: 1rem;
+  padding-right: 2rem;
+}
+
+.padding-y {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.margin-0 {
+  margin-bottom: 0.5rem;
+}
+
+.margin-y {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.margin-bottom {
+  margin-bottom: 1rem;
+}
+
+.margin-left-0 {
+  margin-left: 0;
+}
+
+.list-position {
+  list-style-position: inside;
+}
+
+.list-style-none {
+  list-style-type: none;
+}
+
+.text-decoration-none {
+  text-decoration: none;
+}
+
+.round {
+  border-radius: 35px;
+}
+
+.border-none {
+  border: none;
+}
+
+.text-orange {
+  color: #CB7318;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-xs {
+  font-size: 1rem; 
+}
+
+.text-s {
+  font-size: 1.25rem; 
+}
+
+.text-m {
+  font-size: 2rem;
+}
+
+.text-md {
+  font-size: 3rem; 
+}
+
+.text-lg {
+  font-size: 5rem; 
+}
+
+.text-xl {
+  font-size: 6.5rem;
+}
+
+.logo {
+  height: 80px;
+  width: 80px;
+  border-radius: 100%;
+  box-shadow: 4px 4px 10px 0px rgb(0, 0, 0);
+  align-self: center;
+  margin-bottom: 0.2rem;
+}
+
+
+.nav-item-height {
+  height: 2rem;
+}
+
+.nav-item-hover {
+  display: flex; /* or flex */
+  padding-bottom: 1rem; /* your original padding */
+}
+
+.nav-item-hover:hover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #442F13;
+  border-radius: 10px 10px 0 0;
+  transition: background-color 0.5s ease-in-out;
+  height: 2rem;
+  width: fit-content;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.shadow-button {
+  box-shadow: 0 0 15px 0px rgb(0, 0, 0);
+}
