@@ -3,6 +3,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="./FormSubmission/formStyles.css">
+  <link rel="stylesheet" href="./About/about.css">
+  <link rel="stylesheet" href="./Contact/contact.css">
   <title>Empower The Nation</title>
 </head>
   <body>
@@ -11,8 +14,16 @@
       <div class="flex justify-evenly align-self-end width-nav-items">
         <a class="text-decoration-none font-segoe-ui text-orange text-s nav-item-hover" href="#" onclick="loadContent('Home')">Home</a>
         <a class="text-decoration-none font-segoe-ui text-orange text-s nav-item-hover" href="#" onclick="loadContent('About')">About</a>
+         <!-- Dropdown for Courses -->
+        <div class="dropdown nav-item-hover" style="position: relative; display: inline-flex;">
+            <a href="#" class="dropdown-toggle text-decoration-none font-segoe-ui text-orange text-s" id="coursesDropdown">Courses</a>
+            <div class="dropdown-menu" id="dropdownMenu">
+              <a href="#" class="text-orange font-segoe-ui text-s text-decoration-none dropdown-item" onclick="loadContent('Six-Months'); return false;">Six-Months</a>
+              <a href="#" class="text-orange font-segoe-ui text-s text-decoration-none dropdown-item" onclick="loadContent('Six-Weeks'); return false;">Six-Weeks</a>
+            </div>
+        </div>
         <a class="text-decoration-none font-segoe-ui text-orange text-s nav-item-hover" href="#" onclick="loadContent('Contact')">Contact</a>
-        <a class="text-decoration-none font-segoe-ui text-orange text-s nav-item-hover" href="#" onclick="loadContent('Forms')">Contact</a>
+        <a class="text-decoration-none font-segoe-ui text-orange text-s nav-item-hover" href="#" onclick="loadContent('Forms')">Sign up</a>
       </div>
     </nav>
 
@@ -48,5 +59,7 @@
       <p class="text-orange font-segoe-ui align-self-end">2025 Empowering the Nation.<br/>All rights reserved.</p>
     </footer>
     <script src="script.js"></script>
+    <script src="./Courses/course.js"></script>
+    <script src="./About/about.js"></script>
   </body>
 </html>

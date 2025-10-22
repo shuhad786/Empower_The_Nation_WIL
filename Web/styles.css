@@ -155,6 +155,16 @@ body::before {
   margin-bottom: 1rem;
 }
 
+.margin-y-six {
+  margin-top: 2rem;
+  margin-bottom: 7rem;
+}
+
+.margin-y-six-C {
+  margin-top: 3rem;
+  margin-bottom: 8rem;
+}
+
 .margin-bottom {
   margin-bottom: 1rem;
 }
@@ -253,4 +263,91 @@ body::before {
 
 .shadow-button {
   box-shadow: 0 0 15px 0px rgb(0, 0, 0);
+}
+
+/* Grid layout for course cards */
+.course-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+/* Added spacing to buttons and hover effect */
+.course-item button {
+  margin-top: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.course-item button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* Center course card text */
+.course-item {
+  text-align: center;
+}
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-flex;
+}
+
+/* Dropdown toggle link */
+.dropdown-toggle {
+  cursor: pointer;
+}
+
+/* Dropdown menu hidden by default */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%; /* directly below toggle */
+  left: 0;
+  width: 250px; /* fixed width - adjust as needed */
+  background-color: rgba(68, 47, 19, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  border-radius: 0 0 10px 10px;
+  border: 3px solid #442F13;
+  flex-direction: column;
+  padding: 0.5rem 0;
+  z-index: 1000;
+}
+
+/* Show dropdown menu when active */
+.dropdown-menu.show {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dropdown menu items */
+.dropdown-menu a {
+  color: #CB7318; /* orange text */
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  white-space: nowrap;
+  display: block;
+  font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 1.4rem;
+  border-bottom: 3px solid #442F13; /* subtle horizontal line */
+  text-align: center;
+}
+
+/* Remove border from last link */
+.dropdown-menu a:last-child {
+  border-bottom: none;
+}
+
+/* Hover effect on dropdown items */
+.dropdown-menu a:hover {
+  background-color: #442F13;
+  color: #F8F0E0;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
