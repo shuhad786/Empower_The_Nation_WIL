@@ -6,15 +6,47 @@
   <title>Empower The Nation</title>
 </head>
   <body>
-    <nav id="navbar">
-      <a href="#" onclick="loadContent('home')">Home</a>
-      <a href="#" onclick="loadContent('about')">About</a>
-      <a href="#" onclick="loadContent('contact')">Contact</a>
+    <nav class="flex justify-between align-center background-accent-1 padding-x height-navbar">
+      <img class="logo" src="assests/logo.png" alt="Empower The Nation Logo">
+      <div class="flex justify-evenly align-self-end width-nav-items">
+        <a class="text-decoration-none font-segoe-ui text-orange text-s nav-item-hover" href="#" onclick="loadContent('Home')">Home</a>
+        <a class="text-decoration-none font-segoe-ui text-orange text-s nav-item-hover" href="#" onclick="loadContent('About')">About</a>
+        <a class="text-decoration-none font-segoe-ui text-orange text-s nav-item-hover" href="#" onclick="loadContent('Contact')">Contact</a>
+        <a class="text-decoration-none font-segoe-ui text-orange text-s nav-item-hover" href="#" onclick="loadContent('Forms')">Contact</a>
+      </div>
     </nav>
 
-    <div id="content">
+    <div id="content" class="height background-transparent">
       <!-- Dynamic content will appear here -->
     </div>
+
+    <footer class="flex justify-between align-center background-accent-1 padding-s height-footer-1">
+      <div class="flex align-self-start">
+        <ul class="text-orange font-segoe-ui padding-left-0 text-left margin-left-0 list-position">
+          <p class="text-m">FAQS</p>
+          <li class="text-xs margin-bottom">Payments</li>
+          <li class="text-xs margin-y">Registration</li>
+          <li class="text-xs margin-y">Employment</li>
+        </ul>
+      </div>
+      
+      <div class="flex align-self-start">
+        <ul class="text-orange font-segoe-ui padding-left-0 text-left margin-left-0 list-position">
+          <p class="text-m">SPONSORS</p>
+          <li class="text-xs margin-bottom">Elevate Workforce Foundation</li>
+          <li class="text-xs margin-y">Pathway Advancement Initiative</li>
+          <li class="text-xs margin-y">NextGen Skills Alliance</li>
+          <li class="text-xs">Empowerment Futures Trust</li>
+        </ul>
+      </div>
+      
+      <div class="flex align-center justify-between background-accent-2 padding-s width-footer-2 height-footer-2 round">
+        <button class="text-orange font-segoe-ui-italic background-accent-button round border-none padding-s width-button-1 text-m shadow-button">Enquire</button>
+        <p class="text-orange font-segoe-ui-italic text-s">Subscribe to our news letter for more information on<br/>availability for 2025 Courses.</p>
+      </div>
+
+      <p class="text-orange font-segoe-ui align-self-end">2025 Empowering the Nation.<br/>All rights reserved.</p>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>
