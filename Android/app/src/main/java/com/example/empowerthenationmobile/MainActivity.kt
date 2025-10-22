@@ -1,7 +1,16 @@
 package com.example.empowerthenationmobile
 
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.height
+import androidx.compose.ui.res.painterResource
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -18,6 +27,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
@@ -30,6 +40,19 @@ import com.example.empowerthenationmobile.ui.forms.FormScreen
 import com.example.empowerthenationmobile.ui.home.HomeScreen
 import com.example.empowerthenationmobile.ui.sixMonths.SixMonthScreen
 import com.example.empowerthenationmobile.ui.sixWeeks.SixWeekScreen
+import com.example.empowerthenationmobile.ui.theme.EmpowerTheNationMobileTheme
+
+
+class MainActivity : ComponentActivity() {
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContent {
+      EmpowerTheNationMobileTheme(dynamicColor = false) {
+        EmpowerTheNationApp()
+      }
+    }
+  }
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -40,9 +63,23 @@ fun EmpowerTheNationApp() {
   Scaffold(
     topBar = {
       TopAppBar(
-        title = { Text("Empower The Nation") },
+        modifier = Modifier.height(120.dp),
+        title = {
+          Row(verticalAlignment = Alignment.CenterVertically) {
+            Image(
+              painter = painterResource(id = R.drawable.ic_logo),
+              contentDescription = "App Logo",
+              modifier = Modifier
+                .size(60.dp)
+                .padding(end = 8.dp)
+            )
+          }
+        },
+        colors = TopAppBarDefaults.topAppBarColors(
+          containerColor = MaterialTheme.colorScheme.primary  // GreenAccent background
+        ),
         actions = {
-          Box {
+          Box (contentAlignment = Alignment.Center) {
             IconButton(onClick = { expanded = true }) {
               Icon(Menu, contentDescription = "Menu")
             }
@@ -116,11 +153,14 @@ fun EmpowerTheNationApp() {
       )
     },
     bottomBar = {
-      BottomAppBar {
+      BottomAppBar(
+        containerColor = MaterialTheme.colorScheme.primary  // GreenAccent background
+      ) {
         Text(
           modifier = Modifier.padding(16.dp),
           text = "Static Footer",
-          style = MaterialTheme.typography.bodyMedium
+          style = MaterialTheme.typography.bodyMedium,
+          color = MaterialTheme.colorScheme.onPrimary
         )
       }
     }
