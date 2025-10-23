@@ -182,7 +182,7 @@ fun EmpowerTheNationApp() {
                     modifier = Modifier
                       .fillMaxWidth()
                       .graphicsLayer {
-                        renderEffect = RenderEffect.createBlurEffect(15f, 15f, Shader.TileMode.CLAMP)
+                       // renderEffect = RenderEffect.createBlurEffect(15f, 15f, Shader.TileMode.CLAMP)
                       }
                       .background(Color.White.copy(alpha = 0.15f))  // translucent background
                       .drawBehind {
