@@ -228,7 +228,7 @@ fun EmpowerTheNationApp() {
       BottomAppBar(
         containerColor = MaterialTheme.colorScheme.primary, // GreenAccent background
         modifier = Modifier.height(200.dp)
-      ) {
+      ) { // edit
         Text(
           modifier = Modifier.padding(16.dp),
           text = "Static Footer",
