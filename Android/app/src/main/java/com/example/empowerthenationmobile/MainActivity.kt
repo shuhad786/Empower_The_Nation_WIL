@@ -48,8 +48,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.text.style.TextAlign
-import android.graphics.RenderEffect
-import android.graphics.Shader
+//import android.graphics.RenderEffect
+//import android.graphics.Shader
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable

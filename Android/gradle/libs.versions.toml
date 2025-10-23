@@ -8,9 +8,9 @@ espressoCore = "3.7.0"
 kotlinxCoroutinesAndroid = "1.9.0"
 lifecycleRuntimeKtx = "2.9.4"
 activityCompose = "1.11.0"
-composeBom = "2025.10.00"
+composeBom = "2025.10.01"
 material3 = "1.4.0"
-material3WindowSizeClass = "1.5.0-alpha06"
+material3WindowSizeClass = "1.5.0-alpha07"
 ui = "1.9.4"
 
 [libraries]
