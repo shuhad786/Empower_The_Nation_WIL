@@ -60,7 +60,7 @@ import com.example.empowerthenationmobile.ui.contact.ContactScreen
 import com.example.empowerthenationmobile.ui.forms.FormScreen
 import com.example.empowerthenationmobile.ui.home.HomeScreen
 import com.example.empowerthenationmobile.ui.sixMonths.SixMonthScreen
-import com.example.empowerthenationmobile.ui.sixWeeks.SixWeekScreen
+import com.example.empowerthenationmobile.ui.sixWeeks.SixWeekCoursesPage
 import com.example.empowerthenationmobile.ui.theme.BrownAccent
 import com.example.empowerthenationmobile.ui.theme.EmpowerTheNationMobileTheme
 import com.example.empowerthenationmobile.ui.theme.OrangeText
@@ -224,7 +224,7 @@ fun EmpowerTheNationApp() {
         }
       )
     },
-    bottomBar = {
+    bottomBar = { // footer
       BottomAppBar(
         containerColor = MaterialTheme.colorScheme.primary, // GreenAccent background
         modifier = Modifier.height(200.dp)
@@ -237,6 +237,7 @@ fun EmpowerTheNationApp() {
         )
       }
     }
+
   ) { innerPadding ->
     NavHost(
       navController = navController,
@@ -246,7 +247,7 @@ fun EmpowerTheNationApp() {
       composable("home") { HomeScreen() }
       composable("about") { AboutScreen() }
       composable("sixMonths") { SixMonthScreen() }
-      composable("sixWeeks") { SixWeekScreen() }
+      composable("sixWeeks") { SixWeekCoursesPage() }
       composable("contact") { ContactScreen() }
       composable("forms") { FormScreen() }
     }
