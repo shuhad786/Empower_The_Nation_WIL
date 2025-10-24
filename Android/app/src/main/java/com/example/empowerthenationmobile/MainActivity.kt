@@ -47,6 +47,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.text.style.TextAlign
+//import android.graphics.RenderEffect
+//import android.graphics.Shader
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -56,11 +60,10 @@ import com.example.empowerthenationmobile.ui.contact.ContactScreen
 import com.example.empowerthenationmobile.ui.forms.FormScreen
 import com.example.empowerthenationmobile.ui.home.HomeScreen
 import com.example.empowerthenationmobile.ui.sixMonths.SixMonthScreen
-import com.example.empowerthenationmobile.ui.sixWeeks.SixWeekScreen
+import com.example.empowerthenationmobile.ui.sixWeeks.SixWeekCoursesPage
 import com.example.empowerthenationmobile.ui.theme.BrownAccent
 import com.example.empowerthenationmobile.ui.theme.EmpowerTheNationMobileTheme
 import com.example.empowerthenationmobile.ui.theme.OrangeText
-
 
 class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -158,109 +161,74 @@ fun EmpowerTheNationApp() {
                 .fillMaxWidth()
                 .height(dropdownHeight)
                 .background(BrownAccent.copy(alpha = 0.9f)),
-
-              offset = DpOffset(x = 0.dp, y = 20.dp)  // moves dropdown
+              offset = DpOffset(x = 0.dp, y = 20.dp)
             ) {
+              val menuItems = listOf(
+                "Home" to "home",
+                "About" to "about",
+                "Six Month Course" to "sixMonths",
+                "Six Week Course" to "sixWeeks",
+                "Contact" to "contact",
+                "Forms" to "forms"
+              )
+
               Column(
                 modifier = Modifier.fillMaxWidth(),
-                verticalArrangement = Arrangement.spacedBy(40.dp),  // even vertical spacing
-                horizontalAlignment = Alignment.CenterHorizontally  // center items horizontally
+                verticalArrangement = Arrangement.spacedBy(0.dp),  // no spacing, border separates items
+                horizontalAlignment = Alignment.CenterHorizontally
               ) {
-                DropdownMenuItem(
-                  text = {
-                    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-                      Text("Home", color = OrangeText)
+                menuItems.forEachIndexed { index, (label, route) ->
+                  DropdownMenuItem(
+                    modifier = Modifier
+                      .fillMaxWidth()
+                      .graphicsLayer {
+                       // renderEffect = RenderEffect.createBlurEffect(15f, 15f, Shader.TileMode.CLAMP)
+                      }
+                      .background(Color.White.copy(alpha = 0.15f))  // translucent background
+                      .drawBehind {
+                        if (index < menuItems.size - 1) {
+                          val strokeWidth = 1.dp.toPx()
+                          drawLine(
+                            color = BrownAccent.copy(alpha = 0.8f),
+                            start = androidx.compose.ui.geometry.Offset(0f, size.height - strokeWidth / 2),
+                            end = androidx.compose.ui.geometry.Offset(size.width, size.height - strokeWidth / 2),
+                            strokeWidth = strokeWidth
+                          )
+                        }
+                      }
+                      .padding(vertical = 12.dp),
+                    text = {
+                      Box(
+                        modifier = Modifier.fillMaxWidth(),
+                        contentAlignment = Alignment.Center
+                      ) {
+                        Text(
+                          text = label,
+                          color = OrangeText,
+                          textAlign = TextAlign.Center
+                        )
+                      }
+                    },
+                    onClick = {
+                      expanded = false
+                      navController.navigate(route) {
+                        launchSingleTop = true
+                        restoreState = true
+                      }
                     }
-                  },
-                  onClick = {
-                    expanded = false
-                    navController.navigate("home") {
-                      launchSingleTop = true
-                      restoreState = true
-                    }
-                  }
-                )
-                DropdownMenuItem(
-                  text = {
-                    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-                      Text("About", color = OrangeText)
-                    }
-                  },
-                  onClick = {
-                    expanded = false
-                    navController.navigate("about") {
-                      launchSingleTop = true
-                      restoreState = true
-                    }
-                  }
-                )
-                DropdownMenuItem(
-                  text = {
-                    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-                    Text("Six Month Course", color = OrangeText)
-                    }
-                  },
-                  onClick = {
-                    expanded = false
-                    navController.navigate("sixMonths") {
-                      launchSingleTop = true
-                      restoreState = true
-                    }
-                  }
-                )
-                DropdownMenuItem(
-                  text = {
-                    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-                    Text("Six Week Course", color = OrangeText)
-                    }
-                  },
-                  onClick = {
-                    expanded = false
-                    navController.navigate("sixWeeks") {
-                      launchSingleTop = true
-                      restoreState = true
-                    }
-                  }
-                )
-                DropdownMenuItem(
-                  text = {
-                    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-                    Text("Contact", color = OrangeText)
-                    }
-                  },
-                  onClick = {
-                    expanded = false
-                    navController.navigate("contact") {
-                      launchSingleTop = true
-                      restoreState = true
-                    }
-                  }
-                )
-                DropdownMenuItem(
-                  text = {
-                    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-                    Text("Forms", color = OrangeText)
-                    }
-                  },
-                  onClick = {
-                    expanded = false
-                    navController.navigate("forms") {
-                      launchSingleTop = true
-                      restoreState = true
-                    }
-                  }
-                )
+                  )
+                }
               }
-            }
+            } // drop down close
           }
         }
       )
     },
-    bottomBar = {
+    bottomBar = { // footer
       BottomAppBar(
         containerColor = MaterialTheme.colorScheme.primary, // GreenAccent background
         modifier = Modifier.height(200.dp)
-      ) {
+      ) { // edit
         Text(
           modifier = Modifier.padding(16.dp),
           text = "Static Footer",
@@ -269,6 +237,7 @@ fun EmpowerTheNationApp() {
         )
       }
     }
+
   ) { innerPadding ->
     NavHost(
       navController = navController,
@@ -278,7 +247,7 @@ fun EmpowerTheNationApp() {
       composable("home") { HomeScreen() }
       composable("about") { AboutScreen() }
       composable("sixMonths") { SixMonthScreen() }
-      composable("sixWeeks") { SixWeekScreen() }
+      composable("sixWeeks") { SixWeekCoursesPage() }
       composable("contact") { ContactScreen() }
       composable("forms") { FormScreen() }
     }
