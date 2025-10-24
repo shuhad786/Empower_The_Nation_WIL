@@ -1,4 +1,3 @@
-// Discount logic based on number of courses selected
 function getDiscount(selectedCourses) {
   const courseCount = selectedCourses.length;
   
@@ -10,12 +9,12 @@ function getDiscount(selectedCourses) {
   return 0; // No discount for 1 course
 }
 
-// Format currency for display
+
 function formatCurrency(amount) {
   return 'R' + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
 }
 
-// Initialize calculator - call this AFTER the HTML is injected
+
 function initCalculator() {
   const calculateBtn = document.getElementById('calculateBtn');
   
@@ -28,21 +27,19 @@ function initCalculator() {
   const newBtn = calculateBtn.cloneNode(true);
   calculateBtn.parentNode.replaceChild(newBtn, calculateBtn);
   
-  // Add the click event listener
+
   newBtn.addEventListener('click', function() {
-    // Get customer details
+
     const name = document.getElementById('name').value.trim();
     const phone = document.getElementById('phone').value.trim();
     const email = document.getElementById('email').value.trim();
 
-    // Validate customer details
     if (!name || !phone || !email) {
       document.getElementById('result').style.display = 'block';
       document.getElementById('result').innerHTML = '<b style="color: #d32f2f;">Please fill in all personal details.</b>';
       return;
     }
 
-    // Get selected courses
     const selectedCourses = [];
     document.querySelectorAll('.course-checkbox:checked').forEach(cb => {
       selectedCourses.push({
@@ -52,26 +49,21 @@ function initCalculator() {
       });
     });
 
-    // Validate course selection
     if (selectedCourses.length === 0) {
       document.getElementById('result').style.display = 'block';
       document.getElementById('result').innerHTML = '<b style="color: #d32f2f;">Please select at least one course.</b>';
       return;
     }
 
-    // Calculate subtotal
     let subtotal = selectedCourses.reduce((sum, course) => sum + course.fee, 0);
 
-    // Apply discount if applicable
     const discountRate = getDiscount(selectedCourses);
     const discountAmount = subtotal * discountRate;
     const discountedTotal = subtotal - discountAmount;
 
-    // Calculate VAT (15%)
     const vat = discountedTotal * 0.15;
     const total = discountedTotal + vat;
 
-    // Prepare quote/invoice details
     let invoiceHtml = `
       <div style="margin-bottom: 20px;">
         <b>Customer Details:</b>
@@ -107,14 +99,12 @@ function initCalculator() {
       This is a quoted fee and not a formal invoice. A consultant will contact you to finalize your course booking.
     </small>`;
 
-    // Display the result
     document.getElementById('result').style.display = 'block';
     document.getElementById('result').innerHTML = invoiceHtml;
 
-    // Scroll to result
+
     document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
-    // Log for debugging
     console.log('Selected courses:', selectedCourses);
   });
   
