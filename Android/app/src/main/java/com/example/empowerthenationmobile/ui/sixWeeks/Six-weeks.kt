@@ -31,8 +31,8 @@ fun SixWeekCoursesPage() {
   )
 
   Scaffold(
-    topBar = { TopNavBar() },
-    bottomBar = { FooterSection() }
+    //topBar = { TopNavBar() },
+    //bottomBar = { FooterSection() }
   ) { padding ->
     Column(
       modifier = Modifier
@@ -109,7 +109,7 @@ fun CourseCard(course: Course) {
     }
   }
 }
-
+/*
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopNavBar() {
@@ -162,7 +162,7 @@ fun FooterSection() {
       }
     }
   }
-}
+} */
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable

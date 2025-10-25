@@ -29,6 +29,7 @@ private val LightColorScheme = lightColorScheme(
   primary = GreenAccent,
   secondary = BackgroundColor,
   tertiary = BrownAccent,
+  surfaceTint = Transparent
 )
 
 val SegoeUIFontFamily = FontFamily(

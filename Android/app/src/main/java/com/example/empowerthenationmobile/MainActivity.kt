@@ -1,6 +1,7 @@
 package com.example.empowerthenationmobile
 
 import android.os.Bundle
+import android.os.Build
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -48,9 +49,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.text.style.TextAlign
-//import android.graphics.RenderEffect
-//import android.graphics.Shader
+import androidx.compose.ui.graphics.asComposeRenderEffect
+import android.graphics.Shader
+import android.graphics.RenderEffect as AndroidRenderEffect
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.layout.ContentScale
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -62,8 +65,9 @@ import com.example.empowerthenationmobile.ui.home.HomeScreen
 import com.example.empowerthenationmobile.ui.sixMonths.SixMonthScreen
 import com.example.empowerthenationmobile.ui.sixWeeks.SixWeekCoursesPage
 import com.example.empowerthenationmobile.ui.theme.BrownAccent
-import com.example.empowerthenationmobile.ui.theme.EmpowerTheNationMobileTheme
 import com.example.empowerthenationmobile.ui.theme.OrangeText
+import com.example.empowerthenationmobile.ui.theme.EmpowerTheNationMobileTheme
+
 
 class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -102,12 +106,11 @@ fun EmpowerTheNationApp() {
       TopAppBar(
         modifier = Modifier.height(topBarHeight),
         title = {
-
-          Row (
+          Row(
             modifier = Modifier.fillMaxHeight(),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceAround)
-          {
+            horizontalArrangement = Arrangement.SpaceAround
+          ) {
             Box(
               modifier = Modifier
                 .size(80.dp)
@@ -136,7 +139,8 @@ fun EmpowerTheNationApp() {
               Image(
                 painter = painterResource(id = R.drawable.ic_logo),
                 contentDescription = "App Logo",
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Crop
               )
             }
           }
@@ -145,14 +149,14 @@ fun EmpowerTheNationApp() {
           containerColor = MaterialTheme.colorScheme.primary
         ),
         actions = {
-          Box  {
+          Box {
             IconButton(onClick = { expanded = true }) {
               Icon (
                 Menu,
                 contentDescription = "Menu",
                 tint = OrangeText,
                 modifier = Modifier.size(40.dp)
-                )
+              )
             }
             DropdownMenu(
               expanded = expanded,
@@ -160,8 +164,17 @@ fun EmpowerTheNationApp() {
               modifier = Modifier
                 .fillMaxWidth()
                 .height(dropdownHeight)
-                .background(BrownAccent.copy(alpha = 0.9f)),
-              offset = DpOffset(x = 0.dp, y = 20.dp)
+                .graphicsLayer {
+                  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                    renderEffect = AndroidRenderEffect.createBlurEffect(
+                      20f, 20f, Shader.TileMode.CLAMP
+                    ).asComposeRenderEffect()
+                  }
+                },
+              offset = DpOffset(x = 0.dp, y = 22.dp),
+              containerColor = Color.Transparent,  // transparent popup background
+              tonalElevation = 0.dp,  // remove default tonal elevation
+              shadowElevation = 0.dp
             ) {
               val menuItems = listOf(
                 "Home" to "home",
@@ -174,7 +187,7 @@ fun EmpowerTheNationApp() {
 
               Column(
                 modifier = Modifier.fillMaxWidth(),
-                verticalArrangement = Arrangement.spacedBy(0.dp),  // no spacing, border separates items
+                verticalArrangement = Arrangement.spacedBy(0.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
               ) {
                 menuItems.forEachIndexed { index, (label, route) ->
@@ -182,9 +195,13 @@ fun EmpowerTheNationApp() {
                     modifier = Modifier
                       .fillMaxWidth()
                       .graphicsLayer {
-                       // renderEffect = RenderEffect.createBlurEffect(15f, 15f, Shader.TileMode.CLAMP)
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                          renderEffect = AndroidRenderEffect.createBlurEffect(
+                            15f, 15f, Shader.TileMode.CLAMP
+                          ).asComposeRenderEffect()
+                        }
                       }
-                      .background(Color.White.copy(alpha = 0.15f))  // translucent background
+                      .background(BrownAccent.copy(alpha = 0.4f))  // semi-transparent brown tint
                       .drawBehind {
                         if (index < menuItems.size - 1) {
                           val strokeWidth = 1.dp.toPx()
@@ -197,29 +214,39 @@ fun EmpowerTheNationApp() {
                         }
                       }
                       .padding(vertical = 12.dp),
-                    text = {
-                      Box(
-                        modifier = Modifier.fillMaxWidth(),
-                        contentAlignment = Alignment.Center
-                      ) {
-                        Text(
-                          text = label,
-                          color = OrangeText,
-                          textAlign = TextAlign.Center
-                        )
-                      }
-                    },
                     onClick = {
                       expanded = false
                       navController.navigate(route) {
                         launchSingleTop = true
                         restoreState = true
                       }
+                    },
+                    text = {
+                      Box(
+                        modifier = Modifier
+                          .fillMaxWidth()
+                          .graphicsLayer {
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                              renderEffect = AndroidRenderEffect.createBlurEffect(
+                                20f, 20f, Shader.TileMode.CLAMP
+                              ).asComposeRenderEffect()
+                            }
+                          }
+                          .background(Color.Transparent),  // or a semi-transparent color if you want tint
+                        contentAlignment = Alignment.Center,
+                      ) {
+                        Text(
+                          text = label,
+                          color = OrangeText,
+                          textAlign = TextAlign.Center,
+                          style = MaterialTheme.typography.titleLarge
+                        )
+                      }
                     }
                   )
                 }
               }
-            } // drop down close
+            }  // dropdown end
           }
         }
       )
@@ -228,7 +255,7 @@ fun EmpowerTheNationApp() {
       BottomAppBar(
         containerColor = MaterialTheme.colorScheme.primary, // GreenAccent background
         modifier = Modifier.height(200.dp)
-      ) { // edit
+      ) {
         Text(
           modifier = Modifier.padding(16.dp),
           text = "Static Footer",
@@ -237,7 +264,6 @@ fun EmpowerTheNationApp() {
         )
       }
     }
-
   ) { innerPadding ->
     NavHost(
       navController = navController,
@@ -253,6 +279,7 @@ fun EmpowerTheNationApp() {
     }
   }
 }
+
 
 @Preview(showBackground = true)
 @Composable
