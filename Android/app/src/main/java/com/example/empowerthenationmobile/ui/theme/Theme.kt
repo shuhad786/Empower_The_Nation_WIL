@@ -17,7 +17,11 @@ import com.example.empowerthenationmobile.R
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.sp
-
+import androidx.compose.ui.Modifier
+import android.graphics.RenderEffect
+import android.graphics.Shader
+import androidx.compose.ui.graphics.asComposeRenderEffect
+import androidx.compose.ui.graphics.graphicsLayer
 
 private val DarkColorScheme = darkColorScheme(
   primary = GreenAccent,
@@ -53,9 +57,34 @@ val AppFont = Typography(
     fontFamily = SegoeUIFontFamily,
     fontWeight = FontWeight.Bold,
     fontSize = 22.sp
+  ),
+  titleMedium = TextStyle(
+    fontFamily = SegoeUIFontFamily,
+    fontWeight = FontWeight.ExtraLight,
+    fontSize = 16.sp,
+    fontStyle = FontStyle.Italic
+  ),
+  titleSmall = TextStyle(
+    fontFamily = SegoeUIFontFamily,
+    fontWeight = FontWeight.ExtraLight,
+    fontSize = 12.sp,
+    fontStyle = FontStyle.Italic
   )
   // Add other text styles as needed
 )
+
+fun Modifier.blurBackground(
+  radius: Float = 20f
+): Modifier = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+  this.graphicsLayer {
+    renderEffect = RenderEffect.createBlurEffect(
+      radius, radius, Shader.TileMode.CLAMP
+    ).asComposeRenderEffect()
+  }
+} else {
+  this
+}
+
 
 @Composable
 fun EmpowerTheNationMobileTheme(

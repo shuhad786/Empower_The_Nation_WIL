@@ -1,7 +1,8 @@
 package com.example.empowerthenationmobile
 
-import android.os.Bundle
+import android.graphics.Shader
 import android.os.Build
+import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -14,10 +15,15 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.BottomAppBar
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -25,6 +31,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
@@ -37,23 +44,24 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Paint
+import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.asComposeRenderEffect
 import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.graphics.asComposeRenderEffect
-import android.graphics.Shader
-import android.graphics.RenderEffect as AndroidRenderEffect
-import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -65,8 +73,11 @@ import com.example.empowerthenationmobile.ui.home.HomeScreen
 import com.example.empowerthenationmobile.ui.sixMonths.SixMonthScreen
 import com.example.empowerthenationmobile.ui.sixWeeks.SixWeekCoursesPage
 import com.example.empowerthenationmobile.ui.theme.BrownAccent
-import com.example.empowerthenationmobile.ui.theme.OrangeText
 import com.example.empowerthenationmobile.ui.theme.EmpowerTheNationMobileTheme
+import com.example.empowerthenationmobile.ui.theme.OrangeText
+import com.example.empowerthenationmobile.ui.theme.Transparent
+import com.example.empowerthenationmobile.ui.theme.blurBackground
+import android.graphics.RenderEffect as AndroidRenderEffect
 
 
 class MainActivity : ComponentActivity() {
@@ -98,7 +109,7 @@ fun EmpowerTheNationApp() {
   val density = LocalDensity.current
   val containerHeightDp = with(density) { windowInfo.containerSize.height.toDp() }
   val topBarHeight = 110.dp
-  val bottomBarHeight = 210.dp  // adjust if your BottomAppBar height differs
+  val bottomBarHeight = 250.dp  // adjust if your BottomAppBar height differs
   val dropdownHeight = containerHeightDp - topBarHeight - bottomBarHeight
 
   Scaffold(
@@ -164,17 +175,12 @@ fun EmpowerTheNationApp() {
               modifier = Modifier
                 .fillMaxWidth()
                 .height(dropdownHeight)
-                .graphicsLayer {
-                  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                    renderEffect = AndroidRenderEffect.createBlurEffect(
-                      20f, 20f, Shader.TileMode.CLAMP
-                    ).asComposeRenderEffect()
-                  }
-                },
-              offset = DpOffset(x = 0.dp, y = 22.dp),
-              containerColor = Color.Transparent,  // transparent popup background
-              tonalElevation = 0.dp,  // remove default tonal elevation
-              shadowElevation = 0.dp
+                .blurBackground(20f),  // <-- replace graphicsLayer block with this
+              offset = DpOffset(x = 0.dp, y = 31.dp),
+              containerColor = BrownAccent.copy(alpha = 0.7f),
+              tonalElevation = 0.dp,
+              shadowElevation = 0.dp,
+              shape = RectangleShape
             ) {
               val menuItems = listOf(
                 "Home" to "home",
@@ -194,17 +200,11 @@ fun EmpowerTheNationApp() {
                   DropdownMenuItem(
                     modifier = Modifier
                       .fillMaxWidth()
-                      .graphicsLayer {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                          renderEffect = AndroidRenderEffect.createBlurEffect(
-                            15f, 15f, Shader.TileMode.CLAMP
-                          ).asComposeRenderEffect()
-                        }
-                      }
+                      .blurBackground(20f)
                       .background(BrownAccent.copy(alpha = 0.4f))  // semi-transparent brown tint
                       .drawBehind {
                         if (index < menuItems.size - 1) {
-                          val strokeWidth = 1.dp.toPx()
+                          val strokeWidth = 3.dp.toPx()
                           drawLine(
                             color = BrownAccent.copy(alpha = 0.8f),
                             start = androidx.compose.ui.geometry.Offset(0f, size.height - strokeWidth / 2),
@@ -252,18 +252,113 @@ fun EmpowerTheNationApp() {
       )
     },
     bottomBar = { // footer
-      BottomAppBar(
-        containerColor = MaterialTheme.colorScheme.primary, // GreenAccent background
-        modifier = Modifier.height(200.dp)
+      Surface(
+        color = MaterialTheme.colorScheme.primary,
+        modifier = Modifier
+          .fillMaxWidth()
+          .heightIn(min = 100.dp, max = 250.dp)  // max height to limit size
+          .verticalScroll(rememberScrollState())
       ) {
-        Text(
-          modifier = Modifier.padding(16.dp),
-          text = "Static Footer",
-          style = MaterialTheme.typography.bodyMedium,
-          color = MaterialTheme.colorScheme.onPrimary
-        )
+        Row(
+          modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp),
+          verticalAlignment = Alignment.Top,
+          horizontalArrangement = Arrangement.spacedBy(24.dp)
+        ) {
+          // Left side: FAQS and SPONSORS stacked vertically
+          Column(
+            modifier = Modifier.weight(1f),
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+            horizontalAlignment = Alignment.Start
+          ) {
+            // FAQS section
+            Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+              Text(
+                text = "FAQS",
+                fontSize = 14.sp,
+                color = OrangeText,
+                style = MaterialTheme.typography.bodyMedium
+              )
+              listOf("Payments", "Registration", "Employment").forEach { item ->
+                Row {
+                  Text(text = "• ", color = OrangeText, fontSize = 14.sp)
+                  Text(text = item, color = OrangeText, fontSize = 10.sp)
+                }
+              }
+            }
+
+            // SPONSORS section below FAQS
+            Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+              Text(
+                text = "SPONSORS",
+                fontSize = 14.sp,
+                color = OrangeText,
+                style = MaterialTheme.typography.bodyMedium
+              )
+              listOf(
+                "Elevate Workforce Foundation",
+                "Pathway Advancement Initiative",
+                "NextGen Skills Alliance",
+                "Empowerment Futures Trust"
+              ).forEach { item ->
+                Row {
+                  Text(text = "• ", color = OrangeText, fontSize = 14.sp)
+                  Text(text = item, color = OrangeText, fontSize = 10.sp)
+                }
+              }
+            }
+          }
+
+          // Right side: Button and subscription text inside a bubble, plus footer text below
+          Column(
+            modifier = Modifier.weight(1f),
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.CenterHorizontally
+          ) {
+            Surface(
+              shape = RoundedCornerShape(16.dp),
+              color = BrownAccent,
+              modifier = Modifier
+                .padding(16.dp)  // padding to give shadow space
+                .shadow(
+                  elevation = 16.dp,  // stronger shadow
+                  shape = RoundedCornerShape(16.dp),
+                  clip = false
+                )
+            ) {
+              Column(
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+              ) {
+                Button(
+                  onClick = { /* Enquire action */ },
+                  shape = RoundedCornerShape(10.dp),
+                  colors = ButtonDefaults.buttonColors(containerColor = Transparent)
+                ) {
+                  Text(
+                    text = "Enquire",
+                    color = OrangeText,
+                    textAlign = TextAlign.Center,
+                    style = MaterialTheme.typography.titleMedium
+                  )
+                }
+
+                Text(
+                  text = "Subscribe to our news letter for more information on availability for 2025 Courses.",
+                  color = OrangeText,
+                  textAlign = TextAlign.Center,
+                  style = MaterialTheme.typography.titleSmall
+                )
+              }
+            }
+          }            // bubble end
+        }
       }
     }
+
+
   ) { innerPadding ->
     NavHost(
       navController = navController,
