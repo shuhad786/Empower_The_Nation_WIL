@@ -59,7 +59,39 @@ label {
   display: flex;
   align-items: center;
 }
+.text-orange {
+  color: #CB7318;
+}
 
+.text-center {
+  text-align: center;
+}
+
+.font-segoe-ui {
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  font-weight: normal;
+}
+ 
+.background-accent-button {
+  background-color: #FFFFFF;
+}
+ 
+.padding-s {
+  padding: 1.5rem;
+}
+ 
+.round {
+  border-radius: 35px;
+}
+ 
+.border-none {
+  border: none;
+}
+ 
+.text-sm {
+  font-size: 1rem;
+}
+ 
 .input-icon {
   position: absolute;
   left: 15px;
