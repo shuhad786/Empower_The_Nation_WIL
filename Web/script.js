@@ -77,46 +77,37 @@ function loadContent(page) {
   
   else if (page.toLowerCase() === 'six-months') {
     content = `
-      <main class="padding-l background-accent-1 round shadow-card">
+      <main class="padding-l background-accent-1 round shadow-card margin-y-six">
         <h2 class="font-segoe-ui text-orange text-center">Six Month Courses</h2>
-        <p class="font-segoe-ui text-s text-center">
-          Each course runs for six months and provides comprehensive skills training.
+        <p class="font-segoe-ui text-s text-center text-orange">
+          Our six-month courses provide in-depth, hands-on training and professional development opportunities.
         </p>
 
         <div class="course-list">
           <!-- First Aid -->
           <section class="course-item background-accent-2 round padding-m shadow-card">
             <h3 class="font-segoe-ui text-orange">First Aid</h3>
-            <p class="font-segoe-ui text-s">Learn essential first aid awareness and basic life support.</p>
-            <button onclick="loadFirstAid()">
-              <span class="font-segoe-ui-bold text-s text-orange hover-underline">View Details</span>
+            <p class="font-segoe-ui text-s text-orange">Learn essential first aid awareness and basic life support.</p>
+            <button>
+              <a class="font-segoe-ui-bold text-decoration-none text-s text-orange hover-underline" href="./Courses/FirstAid.html">View Details</a>
             </button>
           </section>
 
           <!-- Sewing -->
           <section class="course-item background-accent-2 round padding-m shadow-card">
             <h3 class="font-segoe-ui text-orange">Sewing</h3>
-            <p class="font-segoe-ui text-s">Learn to provide garments and new garment tailoring services.</p>
-            <button onclick="loadSewing()">
-              <span class="font-segoe-ui-bold text-s text-orange hover-underline">View Details</span>
+            <p class="font-segoe-ui text-s text-orange">Learn to provide garments and new garment tailoring services.</p>
+            <button>
+              <a class="font-segoe-ui-bold text-decoration-none text-s text-orange hover-underline" href="./Courses/Sewing.html">View Details</a>
             </button>
           </section>
 
           <!-- Landscaping -->
           <section class="course-item background-accent-2 round padding-m shadow-card">
             <h3 class="font-segoe-ui text-orange">Landscaping</h3>
-            <p class="font-segoe-ui text-s">Learn landscaping servicing for new and established gardens.</p>
-            <button onclick="loadLandscaping()">
-              <span class="font-segoe-ui-bold text-s text-orange hover-underline">View Details</span>
-            </button>
-          </section>
-
-          <!-- Life Skills -->
-          <section class="course-item background-accent-2 round padding-m shadow-card">
-            <h3 class="font-segoe-ui text-orange">Life Skills</h3>
-            <p class="font-segoe-ui text-s">Learn essential life skills to navigate basic life necessities.</p>
-            <button onclick="loadLifeSkills()">
-              <span class="font-segoe-ui-bold text-s text-orange hover-underline">View Details</span>
+            <p class="font-segoe-ui text-s text-orange">Learn landscaping servicing for new and established gardens.</p>
+            <button>
+              <a class="font-segoe-ui-bold text-decoration-none text-s text-orange hover-underline" href="./Courses/Landscaping.html">View Details</a>
             </button>
           </section>
         </div>
@@ -137,8 +128,8 @@ function loadContent(page) {
           <!-- Child Minding -->
           <section class="course-item background-accent-2 round padding-m shadow-card">
             <h3 class="font-segoe-ui text-orange">Child Minding</h3>
-            <p class="font-segoe-ui text-s">Learn how to provide safe basic child and baby care.</p>
-            <button">
+            <p class="font-segoe-ui text-s text-orange">Learn how to provide safe basic child and baby care.</p>
+            <button>
               <a class="font-segoe-ui-bold text-decoration-none text-s text-orange hover-underline" href="./Courses/ChildMinding.html">View Details</a>
             </button>
           </section>
@@ -146,18 +137,18 @@ function loadContent(page) {
           <!-- Cooking -->
           <section class="course-item background-accent-2 round padding-m shadow-card">
             <h3 class="font-segoe-ui text-orange">Cooking</h3>
-            <p class="font-segoe-ui text-s">Learn to cook and prepare nutritious family meals.</p>
-            <button onclick="loadCooking()">
-              <span class="font-segoe-ui-bold text-s text-orange hover-underline">View Details</span>
+            <p class="font-segoe-ui text-s text-orange">Learn to cook and prepare nutritious family meals.</p>
+            <button>
+              <a class="font-segoe-ui-bold text-decoration-none text-s text-orange hover-underline" href="./Courses/Cooking.html">View Details</a>
             </button>
           </section>
 
           <!-- Garden Maintenance -->
           <section class="course-item background-accent-2 round padding-m shadow-card">
             <h3 class="font-segoe-ui text-orange">Garden Maintenance</h3>
-            <p class="font-segoe-ui text-s">Learn the basics of watering, planting, and pruning.</p>
-            <button onclick="loadGardenMaintenance()">
-              <span class="font-segoe-ui-bold text-s text-orange hover-underline">View Details</span>
+            <p class="font-segoe-ui text-s text-orange">Learn the basics of watering, planting, and pruning.</p>
+            <button>
+              <a class="font-segoe-ui-bold text-decoration-none text-s text-orange hover-underline" href="./Courses/GardenMaintenance.html">View Details</a>
             </button>
           </section>
         </div>
