@@ -26,6 +26,44 @@ h1 {
   letter-spacing: 1px;
 }
 
+.font-segoe-ui {
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  font-weight: normal;
+}
+ 
+.background-accent-button {
+  background-color: #FFFFFF;
+}
+ 
+.padding-s {
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+ 
+.round {
+  border-radius: 35px;
+}
+ 
+.border-none {
+  border: none;
+}
+ 
+.text-sm {
+  font-size: 1.3rem;
+}
+
+.button-submit {
+  width: 10rem
+}
+
+.text-orange {
+  color: #CB7318;
+}
+
+.text-center {
+  text-align: center;
+}
+
 .section {
   margin-bottom: 40px;
 }

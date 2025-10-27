@@ -10,7 +10,7 @@
   <div class="container">
     <h1>COURSE REGISTRATION & FEE CALCULATOR</h1>
     
-    <form id="registrationForm">
+    <form id="registrationForm" action="https://formspree.io/f/xvgbjvnl" method="POST">
       <div class="section">
         <h2 class="section-title">Personal Details</h2>
         
@@ -18,7 +18,7 @@
           <label for="name">Full Name</label>
           <div class="input-wrapper">
             <img class="input-icon" src="/Web/assets/icons/user-circle.svg" alt="Name Icon">
-            <input type="text" id="name" placeholder="Enter Your Full Name" required>
+            <input type="text" name="name" id="name" placeholder="Enter Your Full Name" required>
           </div>
         </div>
         
@@ -27,7 +27,7 @@
             <label for="phone">Phone Number</label>
             <div class="input-wrapper">
               <img class="input-icon" src="/Web/assets/icons/phone.svg" alt="Phone Icon">
-              <input type="tel" id="phone" placeholder="Enter Your Phone Number" required>
+              <input type="tel" name="telephone" id="phone" placeholder="Enter Your Phone Number" required>
             </div>
           </div>
           
@@ -35,7 +35,7 @@
             <label for="email">Email Address</label>
             <div class="input-wrapper">
               <img class="input-icon" src="/Web/assets/icons/envelope.svg" alt="Email Icon">
-              <input type="email" id="email" placeholder="Enter Your Email" required>
+              <input type="email" name="email" id="email" placeholder="Enter Your Email" required>
             </div>
           </div>
         </div>
@@ -125,9 +125,9 @@
       </div>
 
       <button type="button" class="calculate-btn" id="calculateBtn">Calculate Total Fees</button>
+      <div id="result" class="result" style="display:none;"></div>
+      <button class="button-submit text-center text-orange font-segoe-ui background-accent-button round border-none padding-s text-sm" type="submit">Submit</button> 
     </form>
-
-    <div id="result" class="result" style="display:none;"></div>
   </div>
 
   <script src="./calculator.js"></script>
