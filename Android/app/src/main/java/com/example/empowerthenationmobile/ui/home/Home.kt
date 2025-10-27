@@ -49,12 +49,16 @@ fun HomeScreen() {
         textAlign = TextAlign.Center
       )
 
+      Spacer(modifier = Modifier.height(8.dp))
+
       Text(
         text = "Founded in 2022 by Precious Radebe, Empowering the Nation is a proudly South African initiative dedicated to uplifting domestic workers and gardeners through practical, culturally relevant training.",
         style = MaterialTheme.typography.bodyLarge,
         color = OrangeText,
         textAlign = TextAlign.Center
       )
+
+      Spacer(modifier = Modifier.height(8.dp))
 
       Text(
         text = "Our programmes blend traditional wisdom with modern skills, creating opportunities for sustainable employment and personal growth. Whether you're looking for a six-month Learnership or a Short Skills Training Programme, we are here to guide you every step of the way.",
