@@ -1,12 +1,12 @@
 let currentCarouselIndex = 0;
-let carouselSlidesToShow = 4;
+let carouselSlidesToShow = 3;
 let totalSlides = 0;
 
 function getSlidesToShow() {
   const width = window.innerWidth;
   if (width <= 480) return 1;
   if (width <= 768) return 2;
-  return 4;
+  return 3;
 }
 
 function updateAboutCarousel() {
