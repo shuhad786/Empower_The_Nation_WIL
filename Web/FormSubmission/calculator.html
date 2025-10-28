@@ -4,97 +4,132 @@
   <meta charset="UTF-8">
   <title>Empowering the Nation - Course Registration</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f7f7f7; }
-    .container { max-width: 500px; margin: 30px auto; background: #fff; padding: 24px; border-radius: 8px; box-shadow: 0 2px 8px #0001; }
-    h2 { text-align: center; color: #2a4d69; }
-    .form-group { margin-bottom: 16px; }
-    label { display: block; margin-bottom: 6px; font-weight: bold; }
-    input[type="text"], input[type="email"], input[type="tel"] {
-      width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;
-    }
-    .courses-list { margin: 0; padding: 0; list-style: none; }
-    .courses-list li { margin-bottom: 10px; }
-    .fee { color: #2a4d69; font-weight: bold; }
-    .btn { width: 100%; padding: 12px; background: #2a4d69; color: #fff; border: none; border-radius: 4px; font-size: 1.1em; cursor: pointer; margin-top: 10px; }
-    .btn:hover { background: #1e3550; }
-    .result { margin-top: 20px; background: #e9f7ef; padding: 16px; border-radius: 6px; color: #155724; font-size: 1.1em; }
-    @media (max-width: 600px) {
-      .container { padding: 12px; }
-      .btn { font-size: 1em; }
-    }
-  </style>
+  <link rel="stylesheet" href="./calculator.css">
 </head>
 <body>
   <div class="container">
-    <h2>Course Registration & Fee Calculator</h2>
-    <form id="registrationForm">
-      <div class="form-group">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" required>
+    <h1>COURSE REGISTRATION & FEE CALCULATOR</h1>
+    
+    <form id="registrationForm" action="https://formspree.io/f/xvgbjvnl" method="POST">
+      <div class="section">
+        <h2 class="section-title">Personal Details</h2>
+        
+        <div class="form-group full-width">
+          <label for="name">Full Name</label>
+          <div class="input-wrapper">
+            <img class="input-icon" src="/Web/assets/icons/user-circle.svg" alt="Name Icon">
+            <input type="text" name="name" id="name" placeholder="Enter Your Full Name" required>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <div class="input-wrapper">
+              <img class="input-icon" src="/Web/assets/icons/phone.svg" alt="Phone Icon">
+              <input type="tel" name="telephone" id="phone" placeholder="Enter Your Phone Number" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <div class="input-wrapper">
+              <img class="input-icon" src="/Web/assets/icons/envelope.svg" alt="Email Icon">
+              <input type="email" name="email" id="email" placeholder="Enter Your Email" required>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" required>
+
+      <div class="section">
+        <h2 class="section-title">Select Course(s)</h2>
+        
+        <div class="courses-grid">
+          <label class="course-card">
+            <input type="checkbox" class="course-checkbox" data-name="First Aid" data-fee="1500" data-duration="6 months">
+            <div class="course-content">
+              <div class="course-header">
+                <span class="course-name">First Aid</span>
+                <span class="course-fee">R1,500</span>
+              </div>
+              <span class="course-duration">6 months</span>
+            </div>
+          </label>
+
+          <label class="course-card">
+            <input type="checkbox" class="course-checkbox" data-name="Sewing" data-fee="1500" data-duration="6 months">
+            <div class="course-content">
+              <div class="course-header">
+                <span class="course-name">Sewing</span>
+                <span class="course-fee">R1,500</span>
+              </div>
+              <span class="course-duration">6 months</span>
+            </div>
+          </label>
+
+          <label class="course-card">
+            <input type="checkbox" class="course-checkbox" data-name="Landscaping" data-fee="1500" data-duration="6 months">
+            <div class="course-content">
+              <div class="course-header">
+                <span class="course-name">Landscaping</span>
+                <span class="course-fee">R1,500</span>
+              </div>
+              <span class="course-duration">6 months</span>
+            </div>
+          </label>
+
+          <label class="course-card">
+            <input type="checkbox" class="course-checkbox" data-name="Life Skills" data-fee="1500" data-duration="6 months">
+            <div class="course-content">
+              <div class="course-header">
+                <span class="course-name">Life Skills</span>
+                <span class="course-fee">R1,500</span>
+              </div>
+              <span class="course-duration">6 months</span>
+            </div>
+          </label>
+
+          <label class="course-card">
+            <input type="checkbox" class="course-checkbox" data-name="Child Minding" data-fee="750" data-duration="6 weeks">
+            <div class="course-content">
+              <div class="course-header">
+                <span class="course-name">Child Minding</span>
+                <span class="course-fee">R750</span>
+              </div>
+              <span class="course-duration">6 weeks</span>
+            </div>
+          </label>
+
+          <label class="course-card">
+            <input type="checkbox" class="course-checkbox" data-name="Cooking" data-fee="750" data-duration="6 weeks">
+            <div class="course-content">
+              <div class="course-header">
+                <span class="course-name">Cooking</span>
+                <span class="course-fee">R750</span>
+              </div>
+              <span class="course-duration">6 weeks</span>
+            </div>
+          </label>
+
+          <label class="course-card">
+            <input type="checkbox" class="course-checkbox" data-name="Garden Maintenance" data-fee="750" data-duration="6 weeks">
+            <div class="course-content">
+              <div class="course-header">
+                <span class="course-name">Garden Maintenance</span>
+                <span class="course-fee">R750</span>
+              </div>
+              <span class="course-duration">6 weeks</span>
+            </div>
+          </label>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" required>
-      </div>
-      <fieldset class="form-group">
-        <legend>Select Course(s):</legend>
-        <ul class="courses-list">
-          <li>
-            <label>
-              <input type="checkbox" class="course" data-name="First Aid" data-fee="1500" data-duration="6m">
-              First Aid <span class="fee">(6 months, R1500)</span>
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="checkbox" class="course" data-name="Sewing" data-fee="1500" data-duration="6m">
-              Sewing <span class="fee">(6 months, R1500)</span>
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="checkbox" class="course" data-name="Landscaping" data-fee="1500" data-duration="6m">
-              Landscaping <span class="fee">(6 months, R1500)</span>
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="checkbox" class="course" data-name="Life Skills" data-fee="1500" data-duration="6m">
-              Life Skills <span class="fee">(6 months, R1500)</span>
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="checkbox" class="course" data-name="Child minding" data-fee="750" data-duration="6w">
-              Child minding <span class="fee">(6 weeks, R750)</span>
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="checkbox" class="course" data-name="Cooking" data-fee="750" data-duration="6w">
-              Cooking <span class="fee">(6 weeks, R750)</span>
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="checkbox" class="course" data-name="Garden maintenance" data-fee="750" data-duration="6w">
-              Garden maintenance <span class="fee">(6 weeks, R750)</span>
-            </label>
-          </li>
-        </ul>
-      </fieldset>
-      <button type="button" class="btn" id="calculateBtn">Calculate Total Fees</button>
+
+      <button type="button" class="calculate-btn" id="calculateBtn">Calculate Total Fees</button>
+      <div id="result" class="result" style="display:none;"></div>
+      <button class="button-submit text-center text-orange font-segoe-ui background-accent-button round border-none padding-s text-sm" type="submit">Submit</button> 
     </form>
-    <div id="result" class="result" style="display:none;"></div>
   </div>
 
   <script src="./calculator.js"></script>
-    
-
 </body>
 </html>

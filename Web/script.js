@@ -414,7 +414,7 @@ function loadContent(page) {
   } else if (page.toLowerCase() === 'contact') {
     file = "./Contact/ContactPage.html";
   } else if (page.toLowerCase() === 'forms') {
-    file = "./Forms/forms.html";
+    file = "./FormSubmission/FormSubmission.html";
   } else if (page.toLowerCase() === 'sixweeks/childminding') {
     file = "./Courses/ChildMinding.html";
   } else if (page.toLowerCase() === 'sixweeks/cooking') {

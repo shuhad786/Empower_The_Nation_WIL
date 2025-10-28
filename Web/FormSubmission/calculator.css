@@ -1,0 +1,372 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+
+.font-segoe-ui {
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  font-weight: normal;
+}
+ 
+.background-accent-button {
+  background-color: #FFFFFF;
+}
+ 
+.padding-s {
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+ 
+.round {
+  border-radius: 35px;
+}
+ 
+.border-none {
+  border: none;
+}
+ 
+.text-sm {
+  font-size: 1.3rem;
+}
+
+.button-submit {
+  width: 10rem
+}
+
+.text-orange {
+  color: #CB7318;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #CB7318;
+  margin-bottom: 25px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+label {
+  font-size: 0.9rem;
+  color: #CB7318;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 15px;
+  width: 20px;
+  height: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  width: 100%;
+  padding: 12px 15px 12px 45px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.06);
+  font-size: 0.95rem;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+input::placeholder {
+  color: #999;
+}
+
+input:focus {
+  outline: none;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 300px)); 
+  gap: 20px;
+  margin-top: 20px;
+  justify-content: center; 
+}
+
+
+.course-card {
+  position: relative;
+  padding: 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.course-card:hover {
+  border-color: #CB7318;
+  box-shadow: 0 4px 12px rgba(203, 115, 24, 0.15);
+  transform: translateY(-2px);
+}
+
+.course-checkbox {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  accent-color: #CB7318;
+}
+
+.course-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.course-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding-right: 30px;
+}
+
+.course-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.course-fee {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #CB7318;
+}
+
+.course-duration {
+  font-size: 0.85rem;
+  color: #666;
+  font-style: italic;
+}
+
+.course-card:has(.course-checkbox:checked) {
+  border-color: #CB7318;
+  background: rgba(203, 115, 24, 0.05);
+}
+
+.calculate-btn {
+  width: 100%;
+  padding: 16px;
+  background: #CB7318;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  box-shadow: 0 4px 12px rgba(203, 115, 24, 0.3);
+}
+
+.calculate-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(203, 115, 24, 0.4);
+}
+
+.calculate-btn:active {
+  transform: translateY(0);
+}
+
+/* Result Section */
+.result {
+  margin-top: 40px;
+  padding: 30px;
+  border-radius: 10px;
+  border-left: 5px solid #CB7318;
+}
+
+.result b {
+  color: #CB7318;
+  font-size: 1.1rem;
+}
+
+.result ul {
+  list-style: none;
+  padding: 15px 0;
+  margin: 10px 0;
+}
+
+.result li {
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border-left: 3px solid #CB7318;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.result small {
+  display: block;
+  margin-top: 15px;
+  color: #666;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"] {
+    font-size: 1rem;
+    padding: 12px 10px 12px 40px;
+  }
+
+  .calculate-btn {
+    font-size: 1rem;
+    padding: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  .input-icon {
+    width: 16px;
+    height: 16px;
+    left: 8px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"] {
+    font-size: 0.95rem;
+    padding: 10px 8px 10px 32px;
+  }
+
+  .course-card {
+    padding: 15px;
+  }
+
+  .course-name {
+    font-size: 1rem;
+  }
+
+  .course-fee {
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 1024px) {
+  .container {
+    padding: 30px;
+    max-width: 700px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+
+  .courses-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"] {
+    font-size: 1rem;
+    padding: 12px 15px 12px 40px;
+  }
+
+  .calculate-btn {
+    font-size: 1.05rem;
+    padding: 15px;
+  }
+
+  .section-title {
+    font-size: 1.35rem;
+  }
+}
