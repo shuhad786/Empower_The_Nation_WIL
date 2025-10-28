@@ -209,6 +209,10 @@ body::before {
   font-size: 1rem; 
 }
 
+.text-sm {
+  font-size: 1.4rem; 
+}
+
 .text-s {
   font-size: 1.25rem; 
 }
@@ -438,8 +442,8 @@ body::before {
   }
   .dropdown-menu {
     left: 50%;
-    transform: translateX(-50%);
-    width: 90vw;
+    transform: translateX(-10%);
+    width: 44.9vw;
     min-width: 0;
   }
 

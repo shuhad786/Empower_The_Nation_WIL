@@ -37,12 +37,12 @@
   </style>
 </head>
 <body>
-  <nav class="flex justify-between align-center background-accent-1 padding-x height-navbar">
+  <!-- <nav class="flex justify-between align-center background-accent-1 padding-x height-navbar">
       <img class="logo" src="../assests/Logo.png" alt="Empower The Nation Logo">
       <div class="flex justify-evenly align-self-end width-nav-items">
         <a class="text-decoration-none font-segoe-ui text-orange text-s nav-item-hover" href="#" onclick="loadContent('Home')">Home</a>
         <a class="text-decoration-none font-segoe-ui text-orange text-s nav-item-hover" href="#" onclick="loadContent('About')">About</a>
-         <!-- Dropdown for Courses -->
+    
         <div class="dropdown nav-item-hover" style="position: relative; display: inline-flex;">
             <a href="#" class="dropdown-toggle text-decoration-none font-segoe-ui text-orange text-s" id="coursesDropdown">Courses</a>
             <div class="dropdown-menu" id="dropdownMenu">
@@ -53,7 +53,7 @@
         <a class="text-decoration-none font-segoe-ui text-orange text-s nav-item-hover" href="#" onclick="loadContent('Contact')">Contact</a>
         <a class="text-decoration-none font-segoe-ui text-orange text-s nav-item-hover" href="#" onclick="loadContent('Forms')">Sign up</a>
       </div>
-    </nav>
+    </nav> -->
 
   <main class="padding-l background-accent-1 round shadow-card margin-y-six">
     <h2 class="font-segoe-ui text-orange text-center">Six Month Courses</h2>
@@ -67,7 +67,7 @@
         <h3 class="font-segoe-ui text-orange">First Aid</h3>
         <p class="font-segoe-ui text-s text-orange">Learn essential first aid awareness and basic life support.</p>
         <button>
-          <a class="font-segoe-ui-bold text-decoration-none text-s text-orange hover-underline" href="./FirstAid.html">View Details</a>
+          <a class="font-segoe-ui-bold text-decoration-none text-s text-orange hover-underline" href="#" onclick="loadContent('SixMonths/FirstAid'); return false;">View Details</a>
         </button>
       </section>
 
@@ -76,7 +76,7 @@
         <h3 class="font-segoe-ui text-orange">Sewing</h3>
         <p class="font-segoe-ui text-s text-orange">Learn to provide garments and new garment tailoring services.</p>
         <button>
-          <a class="font-segoe-ui-bold text-decoration-none text-s text-orange hover-underline" href="./Sewing.html">View Details</a>
+          <a class="font-segoe-ui-bold text-decoration-none text-s text-orange hover-underline" href="#" onclick="loadContent('SixMonths/Sewing'); return false;">View Details</a>
         </button>
       </section>
 
@@ -85,39 +85,39 @@
         <h3 class="font-segoe-ui text-orange">Landscaping</h3>
         <p class="font-segoe-ui text-s text-orange">Learn landscaping servicing for new and established gardens.</p>
         <button>
-          <a class="font-segoe-ui-bold text-decoration-none text-s text-orange hover-underline" href="./Landscaping.html">View Details</a>
+          <a class="font-segoe-ui-bold text-decoration-none text-s text-orange hover-underline" href="#" onclick="loadContent('SixMonths/Landscaping'); return false;">View Details</a>
         </button>
       </section>
     </div>
   </main>
 
-  <footer class="flex justify-between align-center background-accent-1 padding-s height-footer-1">
-      <div class="flex align-self-start">
-        <ul class="text-orange font-segoe-ui padding-left-0 text-left margin-left-0 list-position">
-          <p class="text-m">FAQS</p>
-          <li class="text-xs margin-bottom">Payments</li>
-          <li class="text-xs margin-y">Registration</li>
-          <li class="text-xs margin-y">Employment</li>
-        </ul>
-      </div>
-      
-      <div class="flex align-self-start">
-        <ul class="text-orange font-segoe-ui padding-left-0 text-left margin-left-0 list-position">
-          <p class="text-m">SPONSORS</p>
-          <li class="text-xs margin-bottom">Elevate Workforce Foundation</li>
-          <li class="text-xs margin-y">Pathway Advancement Initiative</li>
-          <li class="text-xs margin-y">NextGen Skills Alliance</li>
-          <li class="text-xs">Empowerment Futures Trust</li>
-        </ul>
-      </div>
-      
-      <div class="flex align-center justify-between background-accent-2 padding-s width-footer-2 height-footer-2 round">
-        <button class="text-orange font-segoe-ui-italic background-accent-button round border-none padding-s width-button-1 text-m shadow-button">Enquire</button>
-        <p class="text-orange font-segoe-ui-italic text-s">Subscribe to our news letter for more information on<br/>availability for 2025 Courses.</p>
-      </div>
+  <!-- <footer class="flex justify-between align-center background-accent-1 padding-s height-footer-1">
+    <div class="flex align-self-start">
+      <ul class="text-orange font-segoe-ui padding-left-0 text-left margin-left-0 list-position">
+        <p class="text-m text-left">FAQS</p>
+        <li class="text-xs margin-bottom laptop-screen">Payments</li>
+        <li class="text-xs margin-y laptop-screen">Registration</li>
+        <li class="text-xs margin-y laptop-screen">Employment</li>
+      </ul>
+    </div>
+    
+    <div class="flex align-self-start">
+      <ul class="text-orange font-segoe-ui padding-left-0 text-left margin-left-0 list-position">
+        <p class="text-m text-left">SPONSORS</p>
+        <li class="text-xs margin-bottom laptop-screen">Elevate Workforce Foundation</li>
+        <li class="text-xs margin-y laptop-screen">Pathway Advancement Initiative</li>
+        <li class="text-xs margin-y laptop-screen">NextGen Skills Alliance</li>
+        <li class="text-xs">Empowerment Futures Trust</li>
+      </ul>
+    </div>
+    
+    <div class="flex align-center justify-between background-accent-2 padding-s width-footer-2 height-footer-2 round">
+      <button class="text-orange font-segoe-ui-italic background-accent-button round border-none padding-s width-button-1 text-sm shadow-button">Enquire</button>
+      <p class="text-orange font-segoe-ui-italic text-s">Subscribe to our news letter for more information on<br/>availability for 2025 Courses.</p>
+    </div>
 
-      <p class="text-orange font-segoe-ui align-self-end">2025 Empowering the Nation.<br/>All rights reserved.</p>
-    </footer>
+    <p class="text-orange font-segoe-ui text-screen align-self-end laptop-screen">2025 Empowering the Nation.<br/>All rights reserved.</p>
+  </footer> -->
 
   <!-- Calling my own jsfile after the one for main page -->
   <script src="../script.js"></script>
