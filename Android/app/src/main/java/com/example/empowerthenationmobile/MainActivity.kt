@@ -68,6 +68,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.empowerthenationmobile.composable_icons.Menu
 import com.example.empowerthenationmobile.ui.about.AboutScreen
 import com.example.empowerthenationmobile.ui.contact.ContactScreen
+import com.example.empowerthenationmobile.ui.forms.CalculatorScreen
 import com.example.empowerthenationmobile.ui.forms.FormScreen
 import com.example.empowerthenationmobile.ui.home.HomeScreen
 import com.example.empowerthenationmobile.ui.sixMonths.SixMonthScreen
@@ -188,7 +189,8 @@ fun EmpowerTheNationApp() {
                 "Six Month Course" to "sixMonths",
                 "Six Week Course" to "sixWeeks",
                 "Contact" to "contact",
-                "Forms" to "forms"
+                "Forms" to "forms",
+                "Calculator" to "calculator"
               )
 
               Column(
@@ -371,6 +373,7 @@ fun EmpowerTheNationApp() {
       composable("sixWeeks") { SixWeekCoursesPage() }
       composable("contact") { ContactScreen() }
       composable("forms") { FormScreen() }
+      composable("calculator") { CalculatorScreen() }
     }
   }
 }
