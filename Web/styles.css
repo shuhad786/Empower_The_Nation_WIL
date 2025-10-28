@@ -17,6 +17,19 @@ body::before {
   pointer-events: none; /* Allow clicks through */
 }
 
+#content {
+  flex-grow: 1; /* fill remaining vertical space */
+  overflow-y: auto; /* scroll if content is taller */
+  padding-bottom: 1rem; /* optional padding */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#content::-webkit-scrollbar {
+  display: none;
+}
+
 .height { 
   height: 100%;
 }
