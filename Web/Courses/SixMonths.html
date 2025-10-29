@@ -9,32 +9,33 @@
 
   <!-- Separate CSS just for course page layout -->
   <style>
-    /* Grid layout for course cards */
-    .course-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-      padding: 1rem;
-    }
+  /* Grid layout for course cards */
+  .course-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Changed to 2 columns */
+    gap: 2rem;
+    margin-top: 2rem;
+    padding: 1rem;
+  }
 
-    /* Add spacing to buttons and hover effect */
-    .course-item button {
-      margin-top: 1rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-      cursor: pointer;
-    }
+  /* Add spacing to buttons and hover effect */
+  .course-item button {
+    margin-top: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
 
-    .course-item button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    }
+  .course-item button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  }
 
-    /* Center course card text */
-    .course-item {
-      text-align: center;
-    }
-  </style>
+  /* Center course card text */
+  .course-item {
+    text-align: center;
+  }
+</style>
+
 </head>
 <body>
 
@@ -69,6 +70,15 @@
         <p class="font-segoe-ui text-s text-orange">Learn landscaping servicing for new and established gardens.</p>
         <button>
           <a class="font-segoe-ui-bold text-decoration-none text-s text-orange hover-underline" href="#" onclick="loadContent('SixMonths/Landscaping'); return false;">View Details</a>
+        </button>
+      </section>
+
+      <!-- Life Skills -->
+      <section class="course-item background-accent-2 round padding-m shadow-card">
+        <h3 class="font-segoe-ui text-orange">Life Skills</h3>
+        <p class="font-segoe-ui text-s text-orange">Learn essential life skills for personal and professional development.</p>
+        <button>
+          <a class="font-segoe-ui-bold text-decoration-none text-s text-orange hover-underline" href="#" onclick="loadContent('SixMonths/LifeSkills'); return false;">View Details</a>
         </button>
       </section>
     </div>
