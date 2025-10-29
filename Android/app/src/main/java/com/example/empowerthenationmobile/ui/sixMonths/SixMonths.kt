@@ -1,7 +1,5 @@
-package com.example.empowerthenationmobile.ui.sixWeeks
+package com.example.empowerthenationmobile.ui.sixMonths
 
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -14,23 +12,24 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-
+import androidx.navigation.NavController
 
 data class Course(
+  val id: String,       // NavController route
   val title: String,
   val description: String
 )
 
 @Composable
-fun SixWeekCoursesPage() {
+fun SixMonthCoursesPage(navController: NavController) {
   val courses = listOf(
-    Course("Child Minding", "Learn how to provide safe basic child and baby care."),
-    Course("Cooking", "Learn to cook and prepare nutritious family meals."),
-    Course("Garden Maintenance", "Learn the basics of watering, planting, and pruning.")
+    Course("firstAid", "First Aid", "Learn essential first aid awareness and basic life support."),
+    Course("sewing", "Sewing", "Learn to provide garments and new garment tailoring services."),
+    Course("landscaping", "Landscaping", "Learn landscaping servicing for new and established gardens."),
+    Course("lifeSkills", "Life Skills", "Learn essential life skills for personal and professional development.")
   )
 
-  Scaffold(
-  ) { padding ->
+  Scaffold { padding ->
     Column(
       modifier = Modifier
         .padding(padding)
@@ -40,7 +39,7 @@ fun SixWeekCoursesPage() {
       Spacer(modifier = Modifier.height(12.dp))
 
       Text(
-        text = "Six Week Courses",
+        text = "Six Month Courses",
         fontSize = 22.sp,
         fontWeight = FontWeight.Bold,
         color = MaterialTheme.colorScheme.primary,
@@ -48,7 +47,7 @@ fun SixWeekCoursesPage() {
       )
 
       Text(
-        text = "Each course runs for six weeks and offers practical, hands-on skills development.",
+        text = "Our six-month courses provide in-depth, hands-on training and professional development opportunities.",
         fontSize = 14.sp,
         color = MaterialTheme.colorScheme.primary,
         textAlign = TextAlign.Center,
@@ -62,7 +61,10 @@ fun SixWeekCoursesPage() {
         verticalArrangement = Arrangement.spacedBy(16.dp)
       ) {
         items(courses) { course ->
-          CourseCard(course)
+          CourseCard(course = course) {
+            // Navigate to the individual course screen
+            navController.navigate(course.id)
+          }
         }
       }
     }
@@ -70,7 +72,7 @@ fun SixWeekCoursesPage() {
 }
 
 @Composable
-fun CourseCard(course: Course) {
+fun CourseCard(course: Course, onClick: () -> Unit) {
   Card(
     shape = RoundedCornerShape(16.dp),
     elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
@@ -98,19 +100,11 @@ fun CourseCard(course: Course) {
       )
 
       Button(
-        onClick = { /* Navigate to details page */ },
+        onClick = onClick,
         shape = RoundedCornerShape(12.dp)
       ) {
         Text("View Details")
       }
     }
-  }
-}
-
-@Preview(showBackground = true, showSystemUi = true)
-@Composable
-fun SixWeekCoursesPreview() {
-  MaterialTheme {
-    SixWeekCoursesPage()
   }
 }

@@ -71,8 +71,15 @@ import com.example.empowerthenationmobile.ui.contact.ContactScreen
 import com.example.empowerthenationmobile.ui.forms.CalculatorScreen
 import com.example.empowerthenationmobile.ui.forms.FormScreen
 import com.example.empowerthenationmobile.ui.home.HomeScreen
-import com.example.empowerthenationmobile.ui.sixMonths.SixMonthScreen
+import com.example.empowerthenationmobile.ui.sixMonths.SixMonthCoursesPage
+import com.example.empowerthenationmobile.ui.sixMonths.course5.SewingScreen
+import com.example.empowerthenationmobile.ui.sixMonths.course6.LifeSkillsScreen
+import com.example.empowerthenationmobile.ui.sixMonths.course7.FirstAidScreen
 import com.example.empowerthenationmobile.ui.sixWeeks.SixWeekCoursesPage
+import com.example.empowerthenationmobile.ui.sixWeeks.course1.ChildMindingScreen
+import com.example.empowerthenationmobile.ui.sixWeeks.course2.CookingScreen
+import com.example.empowerthenationmobile.ui.sixWeeks.course3.LandscapingScreen
+import com.example.empowerthenationmobile.ui.sixWeeks.course4.GardenMaintenanceScreen
 import com.example.empowerthenationmobile.ui.theme.BrownAccent
 import com.example.empowerthenationmobile.ui.theme.EmpowerTheNationMobileTheme
 import com.example.empowerthenationmobile.ui.theme.OrangeText
@@ -369,14 +376,22 @@ fun EmpowerTheNationApp() {
     ) {
       composable("home") { HomeScreen() }
       composable("about") { AboutScreen() }
-      composable("sixMonths") { SixMonthScreen() }
       composable("sixWeeks") { SixWeekCoursesPage() }
       composable("contact") { ContactScreen() }
       composable("forms") { FormScreen() }
       composable("calculator") { CalculatorScreen() }
+        composable("sixMonths") { SixMonthCoursesPage(navController = navController) }//added these so i can view the pages on click
+        composable("firstAid") { FirstAidScreen(navController = navController) }
+        composable("sewing") { SewingScreen(navController = navController) }
+        composable("landscaping") { LandscapingScreen(navController = navController) }
+        composable("lifeSkills") { LifeSkillsScreen(navController = navController) }
+        composable("cooking") { CookingScreen(navController = navController) }
+        composable("childminding") { ChildMindingScreen(navController = navController) }
+        composable("gardenmaintenance") { GardenMaintenanceScreen(navController = navController) }
+      }
+
     }
   }
-}
 
 
 @Preview(showBackground = true)

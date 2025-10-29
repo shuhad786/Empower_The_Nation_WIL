@@ -9,24 +9,20 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43564a3d-2eca-421d-9fea-fb7b589e8eb9" name="Changes" comment="added the childminding description page to the app, without header and footer">
-      <change afterPath="$PROJECT_DIR$/.idea/AndroidProjectSystem.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/migrations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/app/Empower_The_Nation_Mobile.app.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/studiobot.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixWeeks/course2/CookingScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="43564a3d-2eca-421d-9fea-fb7b589e8eb9" name="Changes" comment="added the course pages for six months and six weeks.">
+      <change afterPath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixMonths/SixMonths.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/Empower_The_Nation_Mobile.app.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixMonths/course5/AboutScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixMonths/course5/SewingScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixMonths/course6/AboutScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixMonths/course6/LifeSkillsScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixMonths/course7/AboutScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixMonths/course7/FirstAidScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixWeeks/course2/AboutScreen.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixWeeks/course3/AboutScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixWeeks/course3/LandscapingScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixWeeks/course4/course_4.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixWeeks/course4/GardenMaintenanceScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixMonths/Six-months.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixMonths/course5/SewingScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixMonths/course5/SewingScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixMonths/course6/LifeSkillsScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixMonths/course6/LifeSkillsScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixMonths/course7/FirstAidScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixMonths/course7/FirstAidScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixWeeks/Six-weeks.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixWeeks/Six-weeks.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixWeeks/course1/ChildMindingScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixWeeks/course1/ChildMindingScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixWeeks/course2/CookingScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixWeeks/course2/CookingScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixWeeks/course3/LandscapingScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixWeeks/course3/LandscapingScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixWeeks/course4/GardenMaintenanceScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Android/app/src/main/java/com/example/empowerthenationmobile/ui/sixWeeks/course4/GardenMaintenanceScreen.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,6 +123,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Android App.Empower_The_Nation_Mobile.app.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
@@ -260,7 +257,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761323773723</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added the course pages for six months and six weeks.">
+      <option name="closed" value="true" />
+      <created>1761754541566</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1761754541566</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -288,6 +293,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added the childminding description page to the app, without header and footer" />
-    <option name="LAST_COMMIT_MESSAGE" value="added the childminding description page to the app, without header and footer" />
+    <MESSAGE value="added the course pages for six months and six weeks." />
+    <option name="LAST_COMMIT_MESSAGE" value="added the course pages for six months and six weeks." />
   </component>
 </project>

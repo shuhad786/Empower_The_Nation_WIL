@@ -1,7 +1,9 @@
 package com.example.empowerthenationmobile.ui.sixWeeks.course4
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -24,6 +26,7 @@ fun GardenMaintenanceScreen(navController: NavController? = null) {
       modifier = Modifier
         .fillMaxWidth()
         .padding(16.dp)
+        .verticalScroll(rememberScrollState())  // <-- makes it scrollable
         .wrapContentHeight(),
       horizontalAlignment = Alignment.Start,
       verticalArrangement = Arrangement.spacedBy(12.dp)
