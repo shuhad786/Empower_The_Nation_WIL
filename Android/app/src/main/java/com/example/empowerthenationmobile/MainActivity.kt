@@ -376,7 +376,7 @@ fun EmpowerTheNationApp() {
     ) {
       composable("home") { HomeScreen() }
       composable("about") { AboutScreen() }
-      composable("sixWeeks") { SixWeekCoursesPage() }
+      composable("sixWeeks") { SixWeekCoursesPage(navController = navController) }
       composable("contact") { ContactScreen() }
       composable("forms") { FormScreen() }
       composable("calculator") { CalculatorScreen() }

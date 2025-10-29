@@ -1,7 +1,7 @@
 package com.example.empowerthenationmobile.ui.sixWeeks
 
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.foundation.Image
+
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -14,23 +14,23 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-
+import androidx.navigation.NavController
 
 data class Course(
+  val id: String,       // NavController route
   val title: String,
   val description: String
 )
 
 @Composable
-fun SixWeekCoursesPage() {
+fun SixWeekCoursesPage(navController: NavController) {
   val courses = listOf(
-    Course("Child Minding", "Learn how to provide safe basic child and baby care."),
-    Course("Cooking", "Learn to cook and prepare nutritious family meals."),
-    Course("Garden Maintenance", "Learn the basics of watering, planting, and pruning.")
+    Course("childMinding", "Child Minding", "Learn how to provide safe basic child and baby care."),
+    Course("cooking", "Cooking", "Learn to cook and prepare nutritious family meals."),
+    Course("gardenMaintenance", "Garden Maintenance", "Learn the basics of watering, planting, and pruning.")
   )
 
-  Scaffold(
-  ) { padding ->
+  Scaffold { padding ->
     Column(
       modifier = Modifier
         .padding(padding)
@@ -62,7 +62,9 @@ fun SixWeekCoursesPage() {
         verticalArrangement = Arrangement.spacedBy(16.dp)
       ) {
         items(courses) { course ->
-          CourseCard(course)
+          CourseCard(course = course) {
+            navController.navigate(course.id)
+          }
         }
       }
     }
@@ -70,7 +72,7 @@ fun SixWeekCoursesPage() {
 }
 
 @Composable
-fun CourseCard(course: Course) {
+fun CourseCard(course: Course, onClick: () -> Unit) {
   Card(
     shape = RoundedCornerShape(16.dp),
     elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
@@ -98,19 +100,11 @@ fun CourseCard(course: Course) {
       )
 
       Button(
-        onClick = { /* Navigate to details page */ },
+        onClick = onClick,
         shape = RoundedCornerShape(12.dp)
       ) {
         Text("View Details")
       }
     }
-  }
-}
-
-@Preview(showBackground = true, showSystemUi = true)
-@Composable
-fun SixWeekCoursesPreview() {
-  MaterialTheme {
-    SixWeekCoursesPage()
   }
 }
