@@ -37,27 +37,38 @@ android {
 }
 
 dependencies {
-
   implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.lifecycle.runtime.ktx)
   implementation(libs.androidx.activity.compose)
+
+  // Compose BOM to manage Compose versions consistently
   implementation(platform(libs.androidx.compose.bom))
-  implementation(libs.androidx.ui)
+
+  // Compose UI libraries
+  implementation(libs.ui)
   implementation(libs.androidx.ui.graphics)
   implementation(libs.androidx.ui.tooling.preview)
-  implementation(libs.androidx.material3)
+
+  // Material3 (only one entry)
+  implementation(libs.material3)
+
+  // Navigation Compose
+  implementation(libs.androidx.navigation.compose)
+
+  // Coroutines
+  implementation(libs.kotlinx.coroutines.android)
+
+  // Testing
   testImplementation(libs.junit)
   androidTestImplementation(libs.androidx.junit)
   androidTestImplementation(libs.androidx.espresso.core)
   androidTestImplementation(platform(libs.androidx.compose.bom))
   androidTestImplementation(libs.androidx.ui.test.junit4)
+
+  // Debug tools
   debugImplementation(libs.androidx.ui.tooling)
   debugImplementation(libs.androidx.ui.test.manifest)
-  implementation(libs.kotlinx.coroutines.android)
-  implementation(libs.androidx.navigation.compose)
-  implementation(libs.androidx.material3)
+
+  // Optional: Material3 Window Size Class if you use it
   implementation(libs.androidx.material3.window.size.class1)
-  implementation(platform(libs.androidx.compose.bom))
-  implementation(libs.ui)  // or latest stable version
-  implementation(libs.material3)  // or latest
 }
