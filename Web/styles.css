@@ -272,10 +272,11 @@ body::before {
   background-color: #442F13;
   border-radius: 10px 10px 0 0;
   transition: background-color 0.5s ease-in-out;
-  height: 2rem;
+  height: 3rem;
   width: fit-content;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+  padding-bottom: 0;
 }
 
 .shadow-button {
