@@ -1,5 +1,6 @@
 package com.example.empowerthenationmobile.ui.sixMonths
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -29,11 +30,13 @@ fun SixMonthCoursesPage(navController: NavController) {
     Course("lifeSkills", "Life Skills", "Learn essential life skills for personal and professional development.")
   )
 
-  Scaffold { padding ->
+  Scaffold(containerColor = (MaterialTheme.colorScheme.secondary) // Transparent background for the page
+  ){ padding ->
     Column(
       modifier = Modifier
         .padding(padding)
         .fillMaxSize()
+        .background(MaterialTheme.colorScheme.secondary)//
         .padding(horizontal = 16.dp)
     ) {
       Spacer(modifier = Modifier.height(12.dp))
