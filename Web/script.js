@@ -39,6 +39,9 @@ function loadContent(page) {
     })
     .then(html => {
       document.getElementById('content').innerHTML = html;
+      if (page.toLowerCase() === 'register') {
+          initCalculator();
+        }
     })
     .catch(error => {
       document.getElementById('content').innerHTML = `<p>Error loading page: ${error.message}</p>`;
