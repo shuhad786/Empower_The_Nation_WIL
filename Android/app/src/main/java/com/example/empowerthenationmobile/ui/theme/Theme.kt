@@ -1,0 +1,111 @@
+package com.example.empowerthenationmobile.ui.theme
+
+import android.os.Build
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.dynamicDarkColorScheme
+import androidx.compose.material3.dynamicLightColorScheme
+import androidx.compose.material3.lightColorScheme
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontStyle
+import com.example.empowerthenationmobile.R
+import androidx.compose.material3.Typography
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.Modifier
+import android.graphics.RenderEffect
+import android.graphics.Shader
+import androidx.compose.ui.graphics.asComposeRenderEffect
+import androidx.compose.ui.graphics.graphicsLayer
+
+private val DarkColorScheme = darkColorScheme(
+  primary = GreenAccent,
+  secondary = BackgroundColor,
+  tertiary = BrownAccent
+)
+
+private val LightColorScheme = lightColorScheme(
+  primary = GreenAccent,
+  secondary = BackgroundColor,
+  tertiary = BrownAccent,
+  surfaceTint = Transparent
+)
+
+val SegoeUIFontFamily = FontFamily(
+  Font(R.font.segoe_ui_regular, weight = FontWeight.Normal, style = FontStyle.Normal),
+  Font(R.font.segoe_ui_bold, weight = FontWeight.Bold, style = FontStyle.Normal),
+  Font(R.font.segoe_ui_italic, weight = FontWeight.Normal, style = FontStyle.Italic)
+)
+
+val AppFont = Typography(
+  bodyLarge = TextStyle(
+    fontFamily = SegoeUIFontFamily,
+    fontWeight = FontWeight.Normal,
+    fontSize = 22.sp
+  ),
+  bodyMedium = TextStyle(
+    fontFamily = SegoeUIFontFamily,
+    fontWeight = FontWeight.Normal,
+    fontSize = 18.sp
+  ),
+  titleLarge = TextStyle(
+    fontFamily = SegoeUIFontFamily,
+    fontWeight = FontWeight.Bold,
+    fontSize = 26.sp
+  ),
+  titleMedium = TextStyle(
+    fontFamily = SegoeUIFontFamily,
+    fontWeight = FontWeight.ExtraLight,
+    fontSize = 16.sp,
+    fontStyle = FontStyle.Italic
+  ),
+  titleSmall = TextStyle(
+    fontFamily = SegoeUIFontFamily,
+    fontWeight = FontWeight.ExtraLight,
+    fontSize = 12.sp,
+    fontStyle = FontStyle.Italic
+  )
+  // Add other text styles as needed
+)
+
+fun Modifier.blurBackground(
+  radius: Float = 20f
+): Modifier = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+  this.graphicsLayer {
+    renderEffect = RenderEffect.createBlurEffect(
+      radius, radius, Shader.TileMode.CLAMP
+    ).asComposeRenderEffect()
+  }
+} else {
+  this
+}
+
+
+@Composable
+fun EmpowerTheNationMobileTheme(
+  darkTheme: Boolean = isSystemInDarkTheme(),
+  // Dynamic color is available on Android 12+
+  dynamicColor: Boolean = false,
+  content: @Composable () -> Unit
+) {
+  val colorScheme = when {
+    dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
+      val context = LocalContext.current
+      if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+    }
+
+    darkTheme -> DarkColorScheme
+    else -> LightColorScheme
+  }
+
+  MaterialTheme(
+    colorScheme = colorScheme,
+    typography = AppFont,
+    content = content
+  )
+}
